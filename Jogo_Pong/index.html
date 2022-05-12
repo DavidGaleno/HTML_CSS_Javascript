@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: gray;
+            height: 100vh;
+            width: 100vw;
+            overflow-y: hidden;
+        }
+        #jogo{
+            background-color: black;
+            width: 1280px;
+            height: 500px;
+        }
+       #direita,#esquerda{
+            background-color: gray;
+        }
+        .barra{
+            width: 20px;
+            height: 140px;
+            top: 180px;
+        }
+        #esquerda{
+            position: absolute;
+            left:10px;
+        }
+        #direita{
+            position: absolute;
+            left:1250px;
+        }
+        #ball{
+            position: absolute;
+            left: 630px;
+            top: 240px;
+            width: 20px;
+            height: 20px;
+            background-color: gray;
+        }
+        #outros{
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        #painel{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        #jogadores{
+            margin-left: 10px;
+        }
+        #botao{
+            display: none;
+        }
+        #definirCor{
+            display: flex;
+            margin-left: 10px;
+            margin-top: 20px;
+        }
+        .cor{
+            width: 300px;
+        }
+        #config{
+            position: absolute;
+            top: 0;
+            gap: 2px;
+            background-color: whitesmoke;
+            width: 1280px;
+            height: 150px;
+            display: none;
+        }
+        #Nomes{
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="jogo">
+        <div id="direita" class="barra"></div>
+        <div id="esquerda" class="barra"></div>
+        <div id="ball"></div>
+    </div>
+    <div id="outros">
+        <div id="opcoes">
+            <div id="painel">
+                <span>Pontos <span id="J1">Jogador</span>: </span><div id="tabelaJ">0</div>
+                <span>Pontos <span id="op">Oponente</span>:</span><div id="tabelaO">0</div>
+                <button onclick="janelaConfig(this)">Configurações</button>
+            </div>
+            <div id="botao">
+                <button onclick="iniciar()">Iniciar</button>
+            </div>
+            </div>
+        <div id="jogadores">
+            <p>Jogar contra:</p>
+            <button onclick="definirModo(0)" class="modos">CPU</button>
+            <button onclick="definirModo(1)" class="modos">Jogador 2</button>
+            <div id="botao"><button onclick="iniciar()">Iniciar</button></div>
+        </div>
+        </div>
+       <div id="config">
+        <div id="definirCor">
+            <div id="corDaBola" class="cor">
+                <p>Cor da bola:</p>
+                <input type="radio" name="bola" id="gray" onclick="corelementos(this.id,this.name)">
+                <label for="gray">Cinza</label>
+                <input type="radio" name="bola" id="black" onclick="corelementos(this.id,this.name)">
+                <label for="black">Preto</label>
+                <input type="radio" name="bola" id="blue" onclick="corelementos(this.id,this.name)">
+                <label for="blue">Azul</label>
+                <input type="radio" name="bola" id="white" onclick="corelementos(this.id,this.name)">
+                <label for="white">Branco</label>
+                <input type="radio" name="bola" id="green" onclick="corelementos(this.id,this.name)">
+                <label for="green">Verde</label>
+                <input type="radio" name="bola" id="orange" onclick="corelementos(this.id,this.name)">
+                <label for="orange">Laranja</label>
+                <input type="radio" name="bola" id="aquamarine" onclick="corelementos(this.id,this.name)">
+                <label for="aquamarine">Azul Marinho</label>
+                <input type="radio" name="bola" id="purple" onclick="corelementos(this.id,this.name)">
+                <label for="purple">Roxo</label>
+                <input type="radio" name="bola" id="hotpink" onclick="corelementos(this.id,this.name)">
+                <label for="hotpink">Rosa</label>
+                <input type="radio" name="bola" id="chocolate" onclick="corelementos(this.id,this.name)">
+                <label for="chocolate">Marrom</label>
+            </div>
+            <div id="corDaEsquerda" class="cor">
+                <p>Cor da Barra Esquerda:</p>
+                <input type="radio" name="esquerda" id="gray" onclick="corelementos(this.id,this.name)">
+                <label for="gray">Cinza</label>
+                <input type="radio" name="esquerda" id="black" onclick="corelementos(this.id,this.name)">
+                <label for="black">Preto</label>
+                <input type="radio" name="esquerda" id="blue" onclick="corelementos(this.id,this.name)">
+                <label for="blue">Azul</label>
+                <input type="radio" name="esquerda" id="white" onclick="corelementos(this.id,this.name)">
+                <label for="white">Branco</label>
+                <input type="radio" name="esquerda" id="green" onclick="corelementos(this.id,this.name)">
+                <label for="green">Verde</label>
+                <input type="radio" name="esquerda" id="orange" onclick="corelementos(this.id,this.name)">
+                <label for="orange">Laranja</label>
+                <input type="radio" name="esquerda" id="aquamarine" onclick="corelementos(this.id,this.name)">
+                <label for="aquamarine">Azul Marinho</label>
+                <input type="radio" name="esquerda" id="purple" onclick="corelementos(this.id,this.name)">
+                <label for="purple">Roxo</label>
+                <input type="radio" name="esquerda" id="hotpink" onclick="corelementos(this.id,this.name)">
+                <label for="hotpink">Rosa</label>
+                <input type="radio" name="esquerda" id="chocolate" onclick="corelementos(this.id,this.name)">
+                <label for="chocolate">Marrom</label>
+            </div>
+            <div id="corDaDireita" class="cor">
+                <p>Cor da Barra Direita:</p>
+                <input type="radio" name="direita" id="gray" onclick="corelementos(this.id,this.name)">
+                <label for="gray">Cinza</label>
+                <input type="radio" name="direita" id="black" onclick="corelementos(this.id,this.name)">
+                <label for="black">Preto</label>
+                <input type="radio" name="direita" id="blue" onclick="corelementos(this.id,this.name)">
+                <label for="blue">Azul</label>
+                <input type="radio" name="direita" id="white" onclick="corelementos(this.id,this.name)">
+                <label for="white">Branco</label>
+                <input type="radio" name="direita" id="green" onclick="corelementos(this.id,this.name)">
+                <label for="green">Verde</label>
+                <input type="radio" name="direita" id="orange" onclick="corelementos(this.id,this.name)">
+                <label for="orange">Laranja</label>
+                <input type="radio" name="direita" id="aquamarine" onclick="corelementos(this.id,this.name)">
+                <label for="aquamarine">Azul Marinho</label>
+                <input type="radio" name="direita" id="purple" onclick="corelementos(this.id,this.name)">
+                <label for="purple">Roxo</label>
+                <input type="radio" name="direita" id="hotpink" onclick="corelementos(this.id,this.name)">
+                <label for="hotpink">Rosa</label>
+                <input type="radio" name="direita" id="chocolate" onclick="corelementos(this.id,this.name)">
+                <label for="chocolate">Marrom</label>
+            </div>
+            <div id="corDoCampo" class="cor">
+                <p>Cor do Campo:</p>
+                <input type="radio" name="campo" id="gray" onclick="corelementos(this.id,this.name)">
+                <label for="gray">Cinza</label>
+                <input type="radio" name="campo" id="black" onclick="corelementos(this.id,this.name)">
+                <label for="black">Preto</label>
+                <input type="radio" name="campo" id="cornflowerblue "onclick="corelementos(this.id,this.name)">
+                <label for="cornflowerblue">Azul</label>
+                <input type="radio" name="campo" id="crimson" onclick="corelementos(this.id,this.name)">
+                <label for="crimson">Vermelho</label>
+                <input type="radio" name="campo" id="chocolate" onclick="corelementos(this.id,this.name)">
+                <label for="chocolate">Marrom</label>
+                <input type="radio" name="campo" id="purple" onclick="corelementos(this.id,this.name)">
+                <label for="purple">Roxo</label>
+                <input type="radio" name="campo" id="hotpink" onclick="corelementos(this.id,this.name)">
+                <label for="hotpink">Rosa</label>
+            </div>
+        </div>
+        <div id="Nomes">
+            <span>Digite o nome do Jogador 1</span>
+            <input type="text" name="" id="nomeJ1">
+            <span>Digite o nome do oponente</span>
+            <input type="text" name="" id="nomeop">
+            <button onclick="mudarNomes()">Enviar</button>
+        </div>
+       </div>
+        
+    </div>
+    
+    <script>
+            let jogando = false
+            let frames;
+            let direcaoJ1 = 0;
+            let direcaoJ2 = 0;
+            let direcaoBolaX = 0
+            let direcaoBolaY = 0
+            let pyJ1 = 180
+            let pyCPU = 180
+            let pyBall = 240
+            let pxBall = 475
+            let alturaBarra = 140
+            let tamanhobola = 20
+            let tamanhoBarra = 20
+            let campoX = 1280
+            let campoY = 500
+            let esquerdaX = 10
+            let direitaX = 1230
+            let velocidadeBola = 8
+            let velocidadeJogador = 15
+            const direita = document.getElementById('direita')
+            const esquerda = document.getElementById('esquerda')
+            const ball = document.getElementById('ball')
+            const campo = document.getElementById('jogo')
+            const tabelaJ = document.getElementById('tabelaJ')
+            let pontosJ = 0
+            const tabelaO = document.getElementById('tabelaO')
+            let pontosO = 0
+            const inicio = document.getElementById('botao')
+            let J1 = document.getElementById('J1')
+            let nomeJ1,nomeop 
+            let op = document.getElementById('op')
+            let mododeJogo = 0
+            ball.style.backgroundColor = localStorage.bola
+            esquerda.style.backgroundColor = localStorage.esquerda
+            direita.style.backgroundColor = localStorage.direita
+            let config = document.getElementById('config')
+            if(localStorage.nomeJogador == undefined && localStorage.nomeOponente != undefined ){
+                op.textContent = localStorage.nomeOponente
+            }
+            else if(localStorage.nomeOponente == undefined && localStorage.nomeJogador != undefined){
+                J1.textContent = localStorage.nomeJogador
+            }
+            else if (localStorage.nomeOponente == undefined && localStorage.nomeJogador == undefined ){}
+            else{
+                J1.textContent = localStorage.nomeJogador
+                op.textContent = localStorage.nomeOponente 
+            }
+            
+         
+        function mudarNomes(){
+            nomeJ1 = document.getElementById('nomeJ1')
+            nomeop = document.getElementById('nomeop')
+            localStorage.setItem('nomeJogador',nomeJ1.value)
+            localStorage.setItem('nomeOponente',nomeop.value)
+            if(localStorage.nomeJogador !=""){
+            J1.textContent = localStorage.nomeJogador
+        }
+            if(localStorage.nomeOponente != ""){
+            op.textContent = localStorage.nomeOponente
+            }
+           
+        }
+        function iniciar(){
+            jogando = true
+            inicio.style.display = 'none'
+            if((Math.random()*10)>5){
+                direcaoBolaX = 1
+            }
+            else {
+                direcaoBolaX= -1
+            }
+            game()
+        }
+        function janelaConfig(btn){
+        if(config.style.display == 'block'){
+           config.style.display = 'none'
+           btn.innerHTML = 'Configurações'
+        }
+           else{
+            config.style.display = 'block'
+            btn.innerHTML = 'Fechar'
+           }
+        }
+        function definirModo(modo){
+            if (modo==1){
+                mododeJogo = 1
+            }
+            inicio.style.display = "block"
+            document.querySelectorAll('.modos')[0].style.display = 'none'
+            document.querySelectorAll('.modos')[1].style.display = 'none'
+            document.querySelector('p').style.display =  'none'
+
+        }
+        function corelementos(id,name){
+            if(name=='bola'){
+            localStorage.setItem('bola',id)
+            ball.style.backgroundColor = localStorage.bola
+            }
+            else if(name=='esquerda'){
+                localStorage.setItem('esquerda',id)
+                esquerda.style.backgroundColor = localStorage.esquerda
+            }
+            else if(name=='direita'){
+                localStorage.setItem('direita',id)
+                direita.style.backgroundColor = localStorage.direita
+            }
+            else if(name=='campo'){
+                localStorage.setItem('campo',id)
+                campo.style.backgroundColor = localStorage.campo
+                
+            }
+        }
+        function controlaBola(){
+            pxBall += velocidadeBola * direcaoBolaX
+            pyBall += velocidadeBola* direcaoBolaY
+            if(tamanhoBarra+esquerdaX>=pxBall && pyBall+tamanhobola >=pyJ1 && pyBall<=pyJ1+alturaBarra){
+                direcaoBolaX = 1 
+                direcaoBolaY = ((pyBall+(tamanhobola/2)) - (pyJ1+(alturaBarra/2)))/48
+                velocidadeBola ++
+            }
+            else if(direitaX<=pxBall && pyBall+tamanhobola >=pyCPU && pyBall<=pyCPU+alturaBarra){
+                direcaoBolaX = -1 
+                direcaoBolaY = ((pyBall+(tamanhobola/2)) - (pyCPU+(alturaBarra/2)))/48
+                velocidadeBola ++
+            }
+            if(pyBall <= 0){
+                direcaoBolaY= (-direcaoBolaY)
+            }
+            else if(pyBall+tamanhobola>=campoY){
+                direcaoBolaY = (-direcaoBolaY)
+            }
+            ball.style.top = pyBall + 'px'
+            ball.style.left = pxBall + 'px'
+            
+        }
+        function marcarPonto(){
+            if(pxBall+tamanhobola >=campoX){
+                pontosJ++
+                pyBall = 240
+                pxBall = 475
+                pyJ1 = 180
+                pyCPU = 180
+                direcaoBolaY = 0
+                velocidadeBola = 8
+                tabelaJ.innerHTML = pontosJ
+            }
+            else if(pxBall <= 0){
+                pontosO++
+                pyBall = 240
+                pxBall = 475
+                pyJ1 = 180
+                pyCPU = 180
+                direcaoBolaY = 0
+                velocidadeBola = 8
+                tabelaO.innerHTML = pontosO
+            }
+        }
+        function game(){
+            if(jogando){
+                    controlarJog()
+                    if(mododeJogo==0){
+                    moverCPU()
+                }
+                    controlaBola()
+                    marcarPonto()
+                }
+            frames=requestAnimationFrame(game)
+        }
+        function controlarJog(){
+            if(jogando){
+                if(alturaBarra+pyJ1 >= campoY){
+                    pyJ1 = campoY-alturaBarra-1
+                }
+                else if(pyJ1 <= 0){
+                    pyJ1 = 1
+                }
+                else{
+                pyJ1 += direcaoJ1*velocidadeJogador
+            }
+                esquerda.style.top = pyJ1 + 'px'
+                if(mododeJogo==1){
+                    if(alturaBarra+pyCPU>=campoY){
+                        pyCPU = campoY-alturaBarra-1
+                    }
+                    else if(pyCPU<=0){
+                        pyCPU = 1
+                    }
+                    else{
+                    pyCPU += direcaoJ2*velocidadeJogador    
+                    }
+                    direita.style.top = pyCPU + 'px'
+
+                }
+            } 
+        }
+        function mover(){
+            const tecla = event.keyCode
+            if (tecla==38){
+               direcaoJ1=-1
+            } 
+            else if (tecla==40){
+                direcaoJ1=1
+            }
+            else if (tecla==87){
+                direcaoJ2= -1
+            }
+            else if(tecla==83){
+                direcaoJ2= 1
+            }
+        }
+        function moverCPU(){
+            if(pxBall>campoX/2&&pxBall>0&&direcaoBolaX==1){
+                if(pyBall+(tamanhobola/2)>pyCPU+(alturaBarra/2)){
+                    if(pyCPU+alturaBarra>=campoY){
+                        pyCPU+=velocidadeJogador*(-1)
+                    }
+                    else{
+                    pyCPU+=velocidadeJogador*(1)
+                }
+                }
+                else if(pyBall+(tamanhobola/2)<pyCPU+(alturaBarra/2)){
+                    if(pyCPU<=0){
+                        pyCPU+=velocidadeJogador*(1)
+                    }
+                    else{
+                    pyCPU+=velocidadeJogador*(-1)
+                }
+                }
+                
+            }
+            else if(direcaoBolaX==-1){
+                if(pyCPU<180){
+                    pyCPU+=velocidadeJogador*(1)
+                }
+                else if(pyCPU>180){
+                    pyCPU+=velocidadeJogador*(-1) 
+                }
+            }       
+           
+            direita.style.top = pyCPU + 'px'
+        }            
+    
+        function parar(){
+            const tecla = event.keyCode
+            if (tecla==38){
+               direcaoJ1=0
+            } 
+            else if (tecla==40){
+                direcaoJ1=0
+            }
+            else if (tecla==87){
+                direcaoJ2=0
+            }
+            else if(tecla==83){
+                direcaoJ2=0
+            }
+        }
+        document.addEventListener("keydown",mover)
+        document.addEventListener('keyup',parar)
+    </script>
+</body>
+</html>

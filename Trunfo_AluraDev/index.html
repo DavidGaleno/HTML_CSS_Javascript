@@ -1,0 +1,277 @@
+<html>
+
+<head>
+    <title>
+        Imersão Dev - Aula 08
+    </title>
+</head>
+
+<body>
+    <style>
+        body {
+    font-family: 'Roboto Mono', monospace;
+    min-height: 854px;
+    background-image: url('https://www.alura.com.br/assets/img/imersoes/dev-2021/dia-07-super-trunfo-bg.png');
+    background-color: #000000;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    padding-bottom: 20vh;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.page-title {
+    color: #ffffff;
+    margin: 5px 0;
+}
+
+button, .button-jogar {
+    padding: .8rem 1.5rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+}
+
+h2 {
+    color: white;
+}
+
+#carta-jogador, #carta-maquina {
+    width: 360px;
+    height: 500px;
+    overflow: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    background-size: 350px 300px;
+    background-repeat: no-repeat;
+    background-position-x: 5px;
+    background-position-y: 10px;
+    border-radius: 33px;
+    
+}
+
+#carta-jogador h3 {
+    text-align: center;
+}
+
+.carta-imagem {
+    border: 1px solid black;
+    height: 100px;
+    margin: 10px;
+}
+
+.carta-imagem img {
+    width: 100%;
+    height: 100%;
+}
+
+.carta-status {
+    height: 160px;
+    margin: 2rem;
+    color: white;
+    z-index: 2;
+}
+
+.carta-status input {
+    margin: 20px 10px;
+}
+
+.resultado-final {
+    color: white;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    padding: 1rem;
+    border: 2px solid black;
+    background-color: black;
+}
+
+.--spacing {
+    margin-left: 2.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.carta-subtitle {
+    z-index: 2;
+    position: absolute;
+    top: 16px;
+    left: 37px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: black;
+}
+
+#cartas {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.carta-status p {
+    margin-bottom: 2rem;
+}
+    </style>
+    <div class="container">
+        <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-super-trunfo.png" class="page-logo"
+            alt="">
+        <h1 class="page-title">Super Trunfo</h1>
+        <button onclick="sortearCartas()" id="btnSortear">Sortear carta</button>
+        <form id="form">
+            <h2>Escolha o seu atributo</h2>
+            <div class="wrapper">
+                <div>
+                    <div id="carta-jogador">
+                        <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/card-super-trunfo-transparent-ajustado.png"
+                            style=" width: inherit; height: inherit; position: absolute;">
+                            <div id="opções" class="carta-status">
+                         </div>
+                        <h3></h3>
+                    </div>
+                </div>
+                <div>
+                    <div id="carta-maquina" class="carta">
+                        <img
+                            src="https://www.alura.com.br/assets/img/imersoes/dev-2021/card-super-trunfo-transparent-ajustado.png"
+                            style=" width: inherit; height: inherit; position: absolute;">
+                            <div id="opções2" class="carta-status"></div>
+                    </div>
+                            
+                </div>
+            </div>
+            <button class="button-jogar" type="button" id="btnJogar" onclick="jogarJoguin()" disabled="false">Jogar</button>
+            <div id="resultado"></div>
+        </form>
+    </div>
+    <script>
+        window.alert('Esse site foi feito com base na Imersão AluraDev')
+        window.alert('https://www.alura.com.br/')
+        const carta1 = {
+            nome : 'Bulbasauro',
+            imagem : 'https://img.elo7.com.br/product/original/30F2E1E/matriz-de-bordado-pokemon-bulbasaur-pokemon-bulbasaur.jpg',
+            atributos : {
+                ATK : 12,
+                DEF : 20,
+                MAG : 6
+            }
+        };
+       const carta2 = {
+           nome : 'Dante',
+           imagem : 'https://store.playstation.com/store/api/chihiro/00_09_000/container/BR/en/99/UP0102-CUSA01671_00-AV00000000000002/0/image?_version=00_09_000&platform=chihiro&bg_color=000000&opacity=100&w=720&h=720',
+           atributos : {
+               ATK : 7,
+               DEF : 12,
+               MAG : 20
+           }
+       };
+       const carta3 = {
+           nome : 'Virgil',
+           imagem : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUTRKAGYoa86pX1iAv0GScdQbUq4F-9_Y_Ag&usqp=CAU',
+           atributos : {
+               ATK : 100,
+               DEF : 100,
+               MAG : 100
+           }
+       };
+       const cartas = [carta1,carta2,carta3]
+       const atributos = ['ATK','DEF','MAG']
+       let opções = document.getElementById('opções')
+       let sortear = document.getElementById('btnSortear')
+       let cartaJogador = document.getElementById('carta-jogador')
+       let cartaComputador = document.getElementById('carta-maquina')
+       let jogar = document.getElementById('btnJogar')
+       let jogador = 0
+       let computador = 0
+       function sortearCartas(){
+        opções.innerHTML = ''
+        opções2.innerHTML = ''
+        cartaComputador.style.backgroundImage = ''
+           jogador = cartas[parseInt(Math.random()*3)]
+           computador = cartas[parseInt(Math.random()*3)]
+           if(computador == jogador){
+               computador = cartas[parseInt(Math.random()*3)]
+           }
+           while (computador == jogador){
+            computador = cartas[parseInt(Math.random()*3)]
+           }
+           cartaJogador.style.backgroundImage = `url(${jogador.imagem})`
+           jogar.disabled = false
+           sortear.disabled = true
+           for (i in jogador.atributos){
+                const input = document.createElement('input')
+                const nome = document.createElement('p')
+                nome.setAttribute('class','carta-subtitle')
+                const txt = document.createTextNode(jogador.nome)
+                nome.appendChild(txt)
+                opções.appendChild(nome)
+                input.setAttribute('type','radio')
+                input.setAttribute('name','tipo')
+                input.setAttribute('value',i)
+                opções.appendChild(input)
+                const label = document.createElement('label')
+                label.innerHTML = i + ': '+ jogador.atributos[i]
+                opções.appendChild(label)
+                var br = document.createElement('br');
+                opções.appendChild(br)
+           }
+          
+        }
+        const input = document.getElementsByName('tipo')
+        let escolhaVocê = 0
+        let escolhaComputador = 0 
+        function jogarJoguin(){
+            cartaComputador.style.backgroundImage =  `url(${computador.imagem})`
+            for (i in computador.atributos){
+                const titulo = document.createElement('p')
+                titulo.setAttribute('class','carta-subtitle')
+                const txt = document.createTextNode(computador.nome)
+                titulo.appendChild(txt)
+                opções2.appendChild(titulo)
+                const p = document.createElement('p')
+                p.innerHTML = i + ': '+ computador.atributos[i]
+                p.style.paddingLeft = '1rem'
+                opções2.appendChild(p)
+           }
+            for (i in input){
+               if(input[i].checked){
+                   escolhaVocê = input[i].value
+               }
+            }
+            escolhaComputador = atributos[parseInt(Math.random()*3)]
+            window.alert('Você: '+escolhaVocê+' '+jogador.atributos[escolhaVocê])
+            window.alert('Computador '+ escolhaComputador+' '+computador.atributos[escolhaComputador])
+            if(jogador.atributos[escolhaVocê] > computador.atributos[escolhaComputador]){
+                window.alert('Você ganhou')
+            }
+            else if (jogador.atributos[escolhaVocê] == computador.atributos[escolhaComputador]){
+                window.alert('Empate')
+            }
+            else {
+                window.alert('Você perdeu')
+            }
+            jogar.disabled = true
+            sortear.disabled = false
+        }
+        
+       </script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            background-color: honeydew;
+        }
+        #to-do-list{
+            margin: auto;
+            background-color: lightblue;
+            width: 150px;
+            padding: 100px;
+            height: 260px;
+
+        }
+        h1{
+            text-align: center;
+            padding-top: 2px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        li{
+            background-color: wheat;
+            padding: 10px;
+            margin: 0px;
+            border: solid rgb(247, 212, 148) 4px;
+        }
+        ul{
+            margin-top: -100px;
+            margin-left: -140px;
+            margin-bottom: 0px;
+            width: 350px;
+            list-style: none;
+            
+        }
+        span{
+            cursor: pointer;
+            color: red;
+            font-weight: bolder;
+            font-family:'Arial Narrow Bold', sans-serif;
+            float: right;
+        }
+        #plus{
+            margin-left: -100px;
+        }
+        .marcador{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-do List</h1>
+    <div id="to-do-list">
+        <ul id="lista">
+        </ul>
+        <input type="button" value="+" id="plus" onclick="adicionar('novo')">
+    </div>
+    <script>
+        let marcado = 0
+        let numItems = 0
+        const lista = document.getElementById('lista')
+        const item = document.getElementsByTagName('li')
+        const box = document.getElementById('to-do-list')
+       const plus = document.getElementById('plus')
+        for (let i =0; i <=9;i++){
+            adicionar('salvo')
+        }
+        function adicionar(modo){
+        let input = ''
+        const li = document.createElement('li')
+        if(modo=='novo'){
+        while(input==''){
+            input = window.prompt('Digite o que deseja adicionar')
+        }
+        li.appendChild(document.createTextNode(input))    
+    }
+        else if(localStorage.getItem('item'+numItems)== undefined){
+            return
+        }
+        else{
+            li.appendChild(document.createTextNode(localStorage.getItem('item'+numItems)))
+        }
+        
+        lista.appendChild(li)
+        const complet = document.createElement('input')
+        complet.setAttribute('type','checkbox')
+        complet.setAttribute('class','marcador')
+        complet.setAttribute('id','check'+marcado)
+        if(localStorage.getItem('check'+marcado)=='true'){
+            complet.checked = true
+        }
+        marcado++
+        complet.addEventListener('click',marcar)
+        li.appendChild(complet)
+        function marcar(){
+            if(this.checked){
+                localStorage.setItem('check'+this.id.charAt(5),true)
+            }
+            else{
+                localStorage.removeItem('check'+this.id.charAt(5))
+            }
+        }
+        localStorage.setItem('item'+numItems,li.textContent)
+        numItems++
+        const x = document.createElement('span')
+        x.appendChild(document.createTextNode('X'))
+        li.appendChild(x)
+        x.addEventListener("click",remover)
+        if (item.length==10){
+            box.removeChild(plus)
+        }
+        
+        function remover(){
+            marcado = 0
+            numItems--
+            for(let i =0; i <item.length;i++){
+               if (li.textContent.slice(0,-1) == localStorage.getItem('item'+i)){
+               localStorage.removeItem('item'+i)
+               localStorage.removeItem('check'+i)
+            }
+            }
+            for(let i =0; i <item.length;i++){
+
+               if(localStorage.getItem('item'+i)==undefined){  
+                  localStorage.setItem('item'+i,localStorage.getItem('item'+(i+1)))
+                  localStorage.removeItem('item'+(i+1))
+                  if(localStorage.getItem('check'+i)==undefined){  
+                    localStorage.setItem('check'+i,localStorage.getItem('check'+(i+1)))
+                    localStorage.removeItem('check'+(i+1))
+                 if (localStorage.getItem('check'+i)=='null'){
+                 localStorage.removeItem('check'+i)
+              }
+               }
+               }
+             
+               
+              if (localStorage.getItem('item'+i)=='null'){
+                localStorage.removeItem('item'+i)
+              }
+            }
+            marcado = document.querySelectorAll('.marcador').length-1
+            lista.removeChild(li)
+            if(item.length==9){
+                box.appendChild(plus)
+            }
+        }     
+        }
+
+      
+    </script>
+</body>
+</html>

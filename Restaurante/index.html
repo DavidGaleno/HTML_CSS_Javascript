@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div id="Logo">
+            <img src="Logo.jpg" alt="">
+            <h1>TECHRESTO.</h1>
+        </div>
+        <div id="menu">
+            <nav>
+                <ul>
+                    <li class="link"><a href="#home" >HOME</a></li>
+                    <li class="link"><a href="#dishes" >DISHES</a></li>
+                    <li class="link"><a href="#about" >ABOUT</a></li>
+                    <li class="link"><a href="#review" >REVIEW</a></li>
+                    <li class="link"><a href="#order" >ORDER</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="menu2">
+            <ul>
+                <li id="botãomenuMobile" onclick="manipularMenu()"><img src="../BotãoResponsivo.svg" alt=""></li>
+                <li class="specialLink"><img src="search.png" alt="" onclick="search()"></a>
+                </li>
+                <li class="SpecialLink"><img src="heart.png" alt=""></a></li>
+                <li class="SpecialLink"><img src="market.png" alt=""></a></li>
+            </ul>
+        </div>
+    </header>
+    <section id="otherMenu">
+        <div id="menuMobile">
+            <ul>
+                <li class="link"><a href="#home" >HOME</a></li>
+                <li class="link"><a href="#dishes" >DISHES</a></li>
+                <li class="link"><a href="#about" >ABOUT</a></li>
+                <li class="link"><a href="#review" >REVIEW</a></li>
+                <li class="link"><a href="#order" >ORDER</a></li>
+            </ul>
+        </div>
+    </section>
+    <form action="" id="searchArea">
+        <span id="searchCancel" onclick="search()">X</span>
+        <input type="search" name="" id="barradeBusca" placeholder="Search">
+        <label for="barradeBusca" id="botãodeBusca"><img src="search.png" alt=""></label>
+    </form>
+    <main class="home" id="home">
+        <div class="home-slider swiper">
+            <div class="wrapper swiper-wrapper">
+                <div class="slide swiper-slide">
+                    <div class="content">
+                        <div class="text">
+                            <span>Our Special Disk</span>
+                            <h2>Spicy Noodles</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet explicabo modi libero?</p>
+                            <a href="#"><input type="button" value="Order Now" id="orderNow"></a>
+                        </div>
+                        <div class="image">
+                            <img src="Spicy Noodles.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide swiper-slide">
+                    <div class="content">
+                        <div class="text">
+                            <span>Our Special Disk</span>
+                            <h2>Fried Chicken</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet explicabo modi libero?</p>
+                            <a href="#"><input type="button" value="Order Now" id="orderNow"></a>
+                        </div>
+                        <div class="image">
+                            <img src="FriedChicken.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="slide swiper-slide">
+                    <div class="content">
+                        <div class="text"> 
+                            <span>Our Special Disk</span>
+                            <h2>Hot Pizza</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet explicabo modi libero?</p>
+                            <a href="#"><input type="button" value="Order Now" id="orderNow"></a>
+                        </div>
+                        <div class="image">
+                            <img src="Hot Pizza.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </main>
+    <section class="dishes" id="dishes">
+                <h2>Our Dishes</h2>
+                <h3>POPULAR DISHES</h3>
+            <div id="dishesItens">
+                <div class="dishesItem">
+                    <img src="dish-1.png" alt="">
+                    <h3>Tasty Food</h3>
+                    <div class="priceAdd">
+                        <span>$15.99</span>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>     
+      
+                <div class="dishesItem">
+                    <img src="dish-2.png" alt="">
+                    <h3>Tasty Food</h3>
+                    <div class="priceAdd">
+                        <span>$15.99</span>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="dishesItem">
+                    <img src="dish-3.png" alt="">
+                    <h3>Tasty Food</h3>
+                    <div class="priceAdd">
+                        <span>$15.99</span>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="dishesItem">
+                    <img src="dish-4.png" alt="">
+                    <h3>Tasty Food</h3>
+                    <div class="priceAdd">
+                        <span>$15.99</span>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="dishesItem">
+                    <img src="dish-5.png" alt="">
+                    <h3>Tasty Food</h3>
+                    <div class="priceAdd">
+                        <span>$15.99</span>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="dishesItem">
+                    <img src="dish-6.png" alt="">
+                    <h3>Tasty Food</h3>
+                    <div class="priceAdd">
+                        <span>$15.99</span>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js">    
+    </script>
+    <section id="about">
+        <h2>About Us</h2>
+        <h3>WHY CHOOSE US</h3>
+        <div id="aboutContainer">
+            <div id="aboutIMG">
+                <img src="about-img.png" alt="">
+            </div>
+            <div id="aboutTXT">
+                <h1>Best Food In The Country</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur perferendis vel sint? Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore repudiandae est quae asperiores, magnam sapiente consequatur quod id tenetur nobis, rerum qui in ex! Quasi optio voluptas cumque velit explicabo?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis earum pariatur saepe?</p>
+                <ul id="info">
+                    <li class="info">Free Delivery</li>
+                    <li class="info">Easy Payment</li>
+                    <li class="info">24/7 Service</li>
+                </ul>
+                <button>Learn More</button>
+            </div>
+        </div>
+    </section>
+    <section id="review">
+        <h2>Costumer's Review</h2>
+        <h3>WHAT THE SAY</h3>
+        <div id="reviewContainer">
+            <div class="comment">
+                <div class="profile">
+                    <div class="person">
+                        <img src="pic-1.png" alt="">
+                        <h4>Ethan Winters</h4>
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum molestiae iste ad animi provident iure inventore saepe necessitatibus vel, tempore error perferendis voluptas corporis, deserunt, amet recusandae harum sit soluta.</p>
+            </div>
+            <div class="comment">
+                    <div class="profile">
+                        <div class="person">
+                        <img src="pic-2.png" alt="">
+                        <h4>Mia Winters</h4>
+                </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum molestiae iste ad animi provident iure inventore saepe necessitatibus vel, tempore error perferendis voluptas corporis, deserunt, amet recusandae harum sit soluta.</p>
+            </div>
+            <div class="comment">
+            <div class="profile">
+                <div class="person">
+                        <img src="pic-3.png" alt="">
+                        <h4>Jack Backer</h4>
+                </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum molestiae iste ad animi provident iure inventore saepe necessitatibus vel, tempore error perferendis voluptas corporis, deserunt, amet recusandae harum sit soluta.</p>   
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div id="footerContainer">
+            <div id="location">
+                <h2>Locations</h2>
+                <ul>
+                    <li>India</li>
+                    <li>Japan</li>
+                    <li>Russia</li>
+                    <li>USA</li>
+                    <li>France</li>
+                </ul>
+            </div>
+           
+            <div id="contactInfo">
+                <h2>Contact Info</h2>
+                <ul>
+                    <li>4002-8922</li>
+                    <li>9999-6969</li>
+                    <li>Sheva.alomar@gmail.com</li>
+                    <li>ChrisCamposVermelhos@outlook.com</li>
+                    <li>Irineu, Vc n sabe nem eu - 0807</li>
+                </ul>
+            </div>
+            <div id="FollowUs">
+                <h2>Follow Us</h2>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Instagram</li>
+                    <li>Twitter</li>
+                    <li>Linkedin</li>
+                </ul>
+            </div>
+        </div>
+        <p>Based on <span>Mr. Web Design</span> website</p>
+        <p id="videolink"><a href="https://www.youtube.com/watch?v=MJUssi2c6Ls&t=529s">https://www.youtube.com/watch?v=MJUssi2c6Ls&t=529s</a></p>
+    </footer>
+    <section id="loader">
+        <img src="loader.gif" alt="">
+    </section>
+</body>
+</html>

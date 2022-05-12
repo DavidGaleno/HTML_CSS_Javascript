@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            font-size: 70px;
+        }
+        button{
+            margin-left: 10px;
+
+        }
+        span{
+            margin-left: 10px;
+        }
+        #campo{
+            text-align: center;
+        }
+        div span{
+            font-size: 100px;
+        }
+       
+        input{
+            width: 30px;
+            font-size: 30px;
+            display: none;
+        }
+        .ball{
+            width: 100px;
+            height:  100px;
+            border: 3px solid black;
+            border-radius: 100px;
+
+        }
+        #digitos{
+            font-size: 20px;
+        }
+        #novojogo{
+            margin-left: 10px;
+        }
+        #tentar{
+            display: none;
+        }
+     
+    </style>
+</head>
+<body>
+    <h1>Jogo da Forca</h1>
+    <div id="campo"></div>
+    <input type="text" name="" id="txt" maxlength="1">
+    <button onclick="forca()" id="tentar">Tentar</button>
+    <button onclick="novo()" id="novojogo">Nova partida</button>
+    <span>Letras Digitadas: <span id="digitos"></span> </span>
+    <div id="boneco">
+    </div>
+    <script>
+        const palavras = ['laranja','pessego','tubarao','naruto','autonomo','Ceifeiro','Samurai','Katana','Emergencia','Forca']
+        const campo = document.getElementById('campo')
+        const digitos = document.querySelector('#digitos')
+        const tentar = document.getElementById('tentar')
+        const boneco = document.getElementById('boneco')
+        const novoJogo = document.getElementById('novojogo')
+        const txt = document.getElementById('txt')
+        let sorteio = ''
+        //Variável que indica comandos do usuário
+        let user = document.querySelector('input')
+        //Variável que indica se o usuário completou todos os espaços vazios
+        let completo = ''
+        let fim = 0
+        let espacos = ''
+        function novo(){
+            digitos.innerHTML = ''
+            campo.innerHTML = ''
+            boneco.innerHTML = ''
+            sorteio = palavras[parseInt(Math.random()*10)].toUpperCase()
+            for (i = 0; i < sorteio.length; i++){
+            campo.innerHTML += '<span>_</span>'
+            novoJogo.style.display = 'none'
+            tentar.style.display = 'inline'
+            txt.style.display = 'inline'
+            espacos = document.querySelectorAll('#campo span')  
+   
+    }
+        }
+    
+       
+        function forca(){
+
+        let acertou = false
+        let res = user.value.toUpperCase()
+        completo = ''
+        for (let i = 0; i < sorteio.length; i++){
+            
+         if (res == sorteio.charAt(i)){
+             espacos[i].textContent = res
+             acertou = true
+         }
+        }
+        if(acertou == false){
+            const erro = document.createElement('span')
+            erro.textContent = 'X'
+            erro.style.color = 'red'
+            erro.style.fontSize = '40px'
+            if (digitos.textContent.match(res)==null){
+            digitos.textContent += res  
+            }
+            boneco.appendChild(erro)
+            fim++
+        }
+        if(fim==5){
+            window.alert('perdeu')
+            tentar.style.display = 'none'
+            novojogo.style.display = 'inline'
+        }    
+
+            
+        for (let i = 0; i < sorteio.length; i++){
+            completo += espacos[i].textContent
+        }
+        if(completo==sorteio){
+           window.alert('acertou')
+        }
+    }
+    
+        
+
+    
+       
+    
+        
+
+     
+       
+
+    </script>
+</body>
+</html>

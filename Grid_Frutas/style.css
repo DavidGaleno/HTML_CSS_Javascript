@@ -1,0 +1,235 @@
+@charset "UTF-8";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: .5s;
+
+}
+p{
+    text-align: justify;
+}
+#main-container{
+    display: grid;
+    grid-template-columns: minmax(150,1fr) 2fr;
+    grid-template-areas: 
+    "header header header"
+    "sidenav content content"
+    "footer footer footer"
+    ;
+}
+header{
+    grid-area: header;
+    background-color: rgb(155, 108, 199);
+    padding: 2.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#logo > a{
+    text-decoration: none;
+    font-size: 2.5rem;
+    color: white;
+}
+#top-menu ul{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+#top-menu li{
+    display: inline-block;
+}
+#top-menu a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+#top-menu a:hover{
+    background-color: rgba(108, 108, 108, 0.372);
+}
+#side-menu img{
+    width: 100%;
+    height: 100%;
+}
+
+#side-menu{
+    grid-area: sidenav;
+    padding: 30px;
+    background-color: #fafbfc;
+    margin: 0 auto 30px auto;
+}
+#side-menu li {
+    list-style: none;
+}
+#side-menu li a{
+    display: block;
+    min-width: 150px;
+    max-width: 150px;
+    max-height: 150px;
+    min-height: 150px;
+    padding: 30px;
+    box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+}
+#side-menu li a:hover{
+    background-color: rgba(132, 50, 208, 0.392);
+}
+main{
+    font-size: 20px;
+    gap:20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-area: content;
+    padding: 50px;
+    flex-shrink:0;
+}
+main h1{
+    font-size: 60px;
+    color:rgb(155, 108, 199);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#caracteristicas{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    margin: 50px 50px 50px 50px;
+}
+.categoria{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.439);
+}
+.numero{
+    padding: 1rem;
+    font-size: 4rem;
+    color: rgba(132, 50, 208, 0.392);
+    background-color: rgb(155, 108, 199);
+}
+#titulo em{
+    color: rgb(155, 108, 199);
+    font-size: 20px;
+}
+.completo{
+    grid-column: 1/-1;
+}
+
+.rotulo{
+    padding: 1rem;
+    color: rgb(155, 108, 199);
+}
+blockquote{
+    background-color: rgb(155, 108, 199);
+    padding: 50px;
+}
+blockquote p{
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+cite{
+    color: white;
+}
+#atributos{
+    background-color: rgb(155, 108, 199);
+    padding: 30px;
+    text-align: center;
+    color: white;
+}
+#atributos ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#atributos li{
+    border-bottom: 2px solid rgba(132, 50, 208, 0.392);
+}
+
+#maça1{
+    grid-row: 3/5;
+}
+#maça3,#maça2,#maça1{
+    width: 100%;
+    height: 100%;
+}
+footer{
+    grid-area: footer;
+    background-color: rgb(155, 108, 199);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+@media (max-width:1043px) {
+    #mudar_ocupacao{
+        grid-column: 1/-1;   
+    }
+    #maça1{
+        grid-row: 4;
+        grid-column: 1/-1;
+    }
+    #maça2{
+        grid-row: 5;
+        grid-column: 1/-1;
+    }
+}
+@media (max-width:896px){
+    #main-container{
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        "header"
+        "sidenav" 
+        "content"
+        "footer";
+    }
+}
+@media (max-width:896px){
+    #side-menu{
+        width: 100%;
+        overflow-x: scroll;
+    }
+    #side-menu ul{
+        display: flex;
+        gap: 20px;
+    }
+    #side-menu li{
+        flex: 1 0 150px;
+    }
+}
+@media (max-width:696px){
+    #titulo{
+        grid-column: 1/-1;
+    }
+    #caracteristicas{
+        grid-column: 1/-1;
+        margin: 0;
+        
+    }
+    #atributos{
+        grid-column: 1/-1;
+    }
+    #mudar_tambem{
+        grid-column: 1/-1;
+    }
+    
+}
+
+@media (max-width:631px){
+    header{
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+@media (max-width:358px){
+    #caracteristicas{
+       flex-direction: column;
+    }
+    .numero{
+        width: 100%;
+        text-align: center;
+    }
+    main{
+        padding: 15px;
+    }
+}

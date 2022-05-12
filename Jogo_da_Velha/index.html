@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .slot{
+            width: 50px;
+            height: 50px;
+            border-bottom: 3px solid blaCK;
+            border-right: 3px solid blaCK;
+        }
+        .slot{
+            font-size: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #s3,#s6,#s9{
+            border-right: none;
+        }
+        #s7,#s8,#s9{
+            border-bottom: none;
+        }
+        .linha{
+            display: flex;
+            align-items: center;
+        }
+        .dificuldade{
+            display: none;
+        }
+        button{
+            margin: 10px 0 10px 10px;
+        }
+        #botao{
+            margin-top: 10px;
+            padding: 10px;
+            background-color: tomato;
+            font-size: 20px;
+            border: none;
+        }
+
+    </style>
+</head>
+<body>
+    <p>Deseja jogar contra:</p>
+    <button class="modo" onclick="definirModo('CPU')">CPU</button> 
+    <button class="modo" onclick="definirModo('Jogador2')">Oponente</button>
+    <button class="dificuldade" onclick="definirModo('easy')">Easy</button>
+    <button class="dificuldade" onclick="definirModo('normal')">Normal</button>
+    <div class="linha">
+        <div id="s1" class="slot" onclick="marcarJogador(this.id)"></div>
+        <div id="s2" class="slot" onclick="marcarJogador(this.id)"></div>
+        <div id="s3" class="slot" onclick="marcarJogador(this.id)"></div>
+    </div>
+    <div class="linha">
+        <div id="s4" class="slot" onclick="marcarJogador(this.id)"></div>
+        <div id="s5" class="slot" onclick="marcarJogador(this.id)"></div>
+        <div id="s6" class="slot" onclick="marcarJogador(this.id)"></div>
+    </div>
+    <div class="linha">
+        <div id="s7" class="slot" onclick="marcarJogador(this.id)"></div>
+        <div id="s8" class="slot" onclick="marcarJogador(this.id)"></div>
+        <div id="s9" class="slot" onclick="marcarJogador(this.id)"></div>
+    </div>
+    <button id="botao" >Jogador</button>
+  
+    <script>
+        const matriz = document.querySelectorAll('.slot')
+        let mododeJogo = ""
+        let local = 0
+        let ganhou = false
+        let acabar = false
+        let jogadaJogador = 0
+        let encheu = 0
+        let modos = document.querySelectorAll('.modo')
+        let dificuldade = document.querySelectorAll('.dificuldade')
+        let botao = document.getElementById('botao')
+        function definirModo(escolha){
+            if (escolha=="CPU"){
+                dificuldade[0].style.display = "inline"
+                dificuldade[1].style.display = "inline"
+            }
+            else if(escolha=="Jogador2") {
+                mododeJogo = "Jogador2"
+            }
+            else if(escolha=="easy"){
+                mododeJogo = "easy"
+                dificuldade[0].style.display = "none"
+                dificuldade[1].style.display = "none"
+            }
+            else{
+                mododeJogo = "normal"
+                dificuldade[0].style.display = "none"
+                dificuldade[1].style.display = "none"
+            }
+            
+            document.querySelector('p').style.display = "none"
+            modos[0].style.display = "none"
+            modos[1].style.display = "none"
+         
+        }
+        function easyMode(){
+            encheu++
+            simbol = "O"
+                let local = parseInt(Math.random()*10)
+                let marcado = false
+                while (marcado == false){
+                if (local == 9){
+                    while (local==9){
+                        local = parseInt(Math.random()*10)
+                    }
+                }    
+                else if (matriz[local].innerHTML != ""){
+                    local = parseInt(Math.random()*10)
+                }
+               
+                else{
+                    marcado = true
+                }
+            }
+                for (let i = 0; i <= matriz.length-1;i++){
+                    if (i == local ){
+                       matriz[i].innerHTML = simbol
+                    }
+                }
+            
+            ganhar()
+            botao.innerHTML = "Jogador"
+            }
+
+            function normalMode(){
+            encheu++
+            simbol = "O"
+            if (matriz[0].innerHTML=="O" && matriz[1].innerHTML=="O" && matriz[2].innerHTML==""){
+                matriz[2].innerHTML = simbol
+            }
+            else if (matriz[0].innerHTML=="O" && matriz[2].innerHTML=="O" && matriz[1].innerHTML==""){
+                matriz[1].innerHTML = simbol
+            }
+            else if (matriz[1].innerHTML=="O" && matriz[2].innerHTML=="O" && matriz[0].innerHTML==""){
+                matriz[0].innerHTML = simbol
+            }
+            else if (matriz[3].innerHTML=="O" && matriz[4].innerHTML=="O" && matriz[5].innerHTML==""){
+                matriz[5].innerHTML = simbol
+            }
+            else if (matriz[4].innerHTML=="O" && matriz[5].innerHTML=="O" && matriz[3].innerHTML==""){
+                matriz[3].innerHTML = simbol
+            }
+            else if (matriz[3].innerHTML=="O" && matriz[5].innerHTML=="O" && matriz[4].innerHTML==""){
+                matriz[4].innerHTML = simbol
+            }
+            else if (matriz[6].innerHTML=="O" && matriz[7].innerHTML=="O" && matriz[8].innerHTML==""){
+                matriz[8].innerHTML = simbol
+            }
+            else if (matriz[7].innerHTML=="O" && matriz[8].innerHTML=="O" && matriz[6].innerHTML==""){
+                matriz[6].innerHTML = simbol
+            }
+            else if (matriz[6].innerHTML=="O" && matriz[8].innerHTML=="O" && matriz[7].innerHTML==""){
+                matriz[7].innerHTML = simbol
+            }
+            else if (matriz[0].innerHTML=="O" && matriz[3].innerHTML=="O" && matriz[6].innerHTML==""){
+                matriz[6].innerHTML = simbol
+            }
+            else if (matriz[3].innerHTML=="O" && matriz[6].innerHTML=="O" && matriz[0].innerHTML==""){
+                matriz[0].innerHTML = simbol
+            }
+            else if (matriz[0].innerHTML=="O" && matriz[6].innerHTML=="O" && matriz[3].innerHTML==""){
+                matriz[3].innerHTML = simbol
+            }
+            else if (matriz[1].innerHTML=="O" && matriz[4].innerHTML=="O" && matriz[7].innerHTML==""){
+                matriz[7].innerHTML = simbol
+            } 
+            else if (matriz[1].innerHTML=="O" && matriz[7].innerHTML=="O" && matriz[4].innerHTML==""){
+                matriz[4].innerHTML = simbol
+            }  
+            else if (matriz[4].innerHTML=="O" && matriz[7].innerHTML=="O" && matriz[1].innerHTML==""){
+                matriz[1].innerHTML = simbol
+            }  
+            else if (matriz[2].innerHTML=="O" && matriz[5].innerHTML=="O" && matriz[8].innerHTML==""){
+                matriz[8].innerHTML = simbol
+            }
+            else if (matriz[2].innerHTML=="O" && matriz[8].innerHTML=="O" && matriz[5].innerHTML==""){
+                matriz[5].innerHTML = simbol
+            }
+            else if (matriz[5].innerHTML=="O" && matriz[8].innerHTML=="O" && matriz[2].innerHTML==""){
+                matriz[2].innerHTML = simbol
+            }
+            else if (matriz[0].innerHTML=="O" && matriz[4].innerHTML=="O" && matriz[8].innerHTML==""){
+                matriz[8].innerHTML = simbol
+            }
+            else if (matriz[4].innerHTML=="O" && matriz[8].innerHTML=="O" && matriz[0].innerHTML==""){
+                matriz[0].innerHTML = simbol
+            }
+            else if (matriz[0].innerHTML=="O" && matriz[8].innerHTML=="X" && matriz[4].innerHTML==""){
+                matriz[4].innerHTML = simbol
+            }
+            else if (matriz[2].innerHTML=="O" && matriz[4].innerHTML=="O" && matriz[6].innerHTML==""){
+                matriz[6].innerHTML = simbol
+            }
+            else if (matriz[4].innerHTML=="O" && matriz[6].innerHTML=="O" && matriz[2].innerHTML==""){
+                matriz[2].innerHTML = simbol
+            }
+            else if (matriz[2].innerHTML=="O" && matriz[6].innerHTML=="O" && matriz[4].innerHTML==""){
+                matriz[4].innerHTML = simbol
+            }
+            else if (matriz[0].innerHTML=="X" && matriz[1].innerHTML=="X" && matriz[2].innerHTML==""){
+                matriz[2].innerHTML = simbol
+            }
+            else if (matriz[0].innerHTML=="X" && matriz[2].innerHTML=="X" && matriz[1].innerHTML==""){
+                matriz[1].innerHTML = simbol
+            }
+            else if (matriz[1].innerHTML=="X" && matriz[2].innerHTML=="X" && matriz[0].innerHTML==""){
+                matriz[0].innerHTML = simbol
+            }
+            else if (matriz[3].innerHTML=="X" && matriz[4].innerHTML=="X" && matriz[5].innerHTML==""){
+                matriz[5].innerHTML = simbol
+            }
+            else if (matriz[4].innerHTML=="X" && matriz[5].innerHTML=="X" && matriz[3].innerHTML==""){
+                matriz[3].innerHTML = simbol
+            }
+            else if (matriz[3].innerHTML=="X" && matriz[5].innerHTML=="X" && matriz[4].innerHTML==""){
+                matriz[4].innerHTML = simbol
+            }
+            else if (matriz[6].innerHTML=="X" && matriz[7].innerHTML=="X" && matriz[8].innerHTML==""){
+                matriz[8].innerHTML = simbol
+            }
+            else if (matriz[7].innerHTML=="X" && matriz[8].innerHTML=="X" && matriz[6].innerHTML==""){
+                matriz[6].innerHTML = simbol
+            }
+            else if (matriz[6].innerHTML=="X" && matriz[8].innerHTML=="X" && matriz[7].innerHTML==""){
+                matriz[7].innerHTML = simbol
+            }
+            else if (matriz[0].innerHTML=="X" && matriz[3].innerHTML=="X" && matriz[6].innerHTML==""){
+                matriz[6].innerHTML = simbol
+            }
+            else if (matriz[3].innerHTML=="X" && matriz[6].innerHTML=="X" && matriz[0].innerHTML==""){
+                matriz[0].innerHTML = simbol
+            }
+            else if (matriz[0].innerHTML=="X" && matriz[6].innerHTML=="X" && matriz[3].innerHTML==""){
+                matriz[3].innerHTML = simbol
+            }
+            else if (matriz[1].innerHTML=="X" && matriz[4].innerHTML=="X" && matriz[7].innerHTML==""){
+                matriz[7].innerHTML = simbol
+            } 
+            else if (matriz[1].innerHTML=="X" && matriz[7].innerHTML=="X" && matriz[4].innerHTML==""){
+                matriz[4].innerHTML = simbol
+            }  
+            else if (matriz[4].innerHTML=="X" && matriz[7].innerHTML=="X" && matriz[1].innerHTML==""){
+                matriz[1].innerHTML = simbol
+            }  
+            else if (matriz[2].innerHTML=="X" && matriz[5].innerHTML=="X" && matriz[8].innerHTML==""){
+                matriz[8].innerHTML = simbol
+            }
+            else if (matriz[2].innerHTML=="X" && matriz[8].innerHTML=="X" && matriz[5].innerHTML==""){
+                matriz[5].innerHTML = simbol
+            }
+            else if (matriz[5].innerHTML=="X" && matriz[8].innerHTML=="X" && matriz[2].innerHTML==""){
+                matriz[2].innerHTML = simbol
+            }
+            else if (matriz[0].innerHTML=="X" && matriz[4].innerHTML=="X" && matriz[8].innerHTML==""){
+                matriz[8].innerHTML = simbol
+            }
+            else if (matriz[4].innerHTML=="X" && matriz[8].innerHTML=="X" && matriz[0].innerHTML==""){
+                matriz[0].innerHTML = simbol
+            }
+            else if (matriz[0].innerHTML=="X" && matriz[8].innerHTML=="X" && matriz[4].innerHTML==""){
+                matriz[4].innerHTML = simbol
+            }
+            else if (matriz[2].innerHTML=="X" && matriz[4].innerHTML=="X" && matriz[6].innerHTML==""){
+                matriz[6].innerHTML = simbol
+            }
+            else if (matriz[4].innerHTML=="X" && matriz[6].innerHTML=="X" && matriz[2].innerHTML==""){
+                matriz[2].innerHTML = simbol
+            }
+            else if (matriz[2].innerHTML=="X" && matriz[6].innerHTML=="X" && matriz[4].innerHTML==""){
+                matriz[4].innerHTML = simbol
+            }
+            else{
+                let jogadas = [jogadaJogador+1,jogadaJogador-1,jogadaJogador+2,jogadaJogador-2,jogadaJogador-3,jogadaJogador+3]
+                let serve = false    
+                while (serve == false){
+                    let jogada = jogadas[parseInt(Math.random()*5)]
+                    if(jogada < 0 || jogada>8 ||matriz[jogada].innerHTML !=""){
+                        continue
+                    }
+                    else{
+                        matriz[jogada].innerHTML = simbol
+                        serve = true
+                    }
+              
+                }
+            }
+            ganhar()
+            botao.innerHTML = "Jogador"
+            }
+
+        function marcarJogador(id){
+            encheu++
+            acabar = false
+            id = parseInt(id.charAt(1))
+            if (matriz[id-1].innerHTML != ""){
+                window.alert("O local já está preenchido")
+                return
+            }
+            if (botao.innerHTML == "Jogador"){
+                simbol = "X"
+            }
+            else {
+                simbol = "O"
+            }
+            for (let i = 1; i <=matriz.length; i++){
+                if(id == i){
+                    matriz[i-1].innerHTML = simbol
+                    jogadaJogador = i-1
+                }
+            }
+            ganhar()
+            if (acabar==true){
+                return
+            }
+            if (mododeJogo == "easy"){
+                botao.innerHTML = "CPU"
+                easyMode()
+                return
+            }
+            else if(mododeJogo == "normal"){
+                botao.innerHTML = "CPU"
+                normalMode()
+                return
+            }
+            else if (botao.innerHTML == "Jogador"){
+                botao.innerHTML = "Jogador2"
+            }
+            else{
+                botao.innerHTML = "Jogador"
+            }
+        }
+        function ganhar(){
+            if (matriz[0].innerHTML==simbol && matriz[1].innerHTML==simbol && matriz[2].innerHTML==simbol){
+                window.alert(botao.innerHTML +  " ganhou")
+                ganhou = true
+            }
+            else if (matriz[3].innerHTML==simbol && matriz[4].innerHTML==simbol && matriz[5].innerHTML==simbol){
+                window.alert(botao.innerHTML +  " ganhou")
+                ganhou = true
+            }
+            else if (matriz[6].innerHTML==simbol && matriz[7].innerHTML==simbol && matriz[8].innerHTML==simbol){
+                window.alert(botao.innerHTML +  " ganhou")
+                ganhou = true
+            }
+            else if (matriz[0].innerHTML==simbol && matriz[3].innerHTML==simbol && matriz[6].innerHTML==simbol){
+                window.alert(botao.innerHTML +  " ganhou")
+                ganhou = true
+            }
+            else if (matriz[1].innerHTML==simbol && matriz[4].innerHTML==simbol && matriz[7].innerHTML==simbol){
+                window.alert(botao.innerHTML +  " ganhou")
+                ganhou = true
+            }
+            else if (matriz[2].innerHTML==simbol && matriz[5].innerHTML==simbol && matriz[8].innerHTML==simbol){
+                window.alert(botao.innerHTML +  " ganhou")
+                ganhou = true
+            }
+            else if (matriz[0].innerHTML==simbol && matriz[4].innerHTML==simbol && matriz[8].innerHTML==simbol){
+                window.alert(botao.innerHTML +  " ganhou")
+                ganhou = true
+            }
+            else if (matriz[2].innerHTML==simbol && matriz[4].innerHTML==simbol && matriz[6].innerHTML==simbol){
+                window.alert(botao.innerHTML +  " ganhou")
+                ganhou = true
+            }
+            if(encheu == matriz.length && ganhou == false){
+                window.alert("Deu velha")
+            }
+            if (encheu == matriz.length || ganhou==true){
+                for (let i = 0; i < matriz.length;i++){
+                    matriz[i].innerHTML = ""
+                 
+                }
+                encheu = 0
+                ganhou = false
+                acabar = true
+                botao.innerHTML = "Jogador"
+                modos[0].style.display = "inline"
+                modos[1].style.display = "inline"
+                document.querySelector('p').style.display = "block"
+            }
+
+        }
+               
+                
+
+                
+                
+    </script>
+</body>
+</html>

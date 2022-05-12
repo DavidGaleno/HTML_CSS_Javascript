@@ -1,0 +1,130 @@
+@import url(global.css);
+@import url(reset.css);
+
+/*Estilizar body Começa*/
+
+body::before{
+    content: '';
+    background-image: url('../imagens/spider-man-background.png');
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    opacity: .1;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body{
+    background-color: var(--primary-color);
+}
+
+/*Estilizar body Termina*/
+
+/*Estilizar header_menu Começa*/
+
+#menu{
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+#menu ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.menu_item{
+    display: inline-block;
+}
+.menu_item a:not(#menu_icon a){
+    padding: .5rem;
+}
+#menu_icon{
+    width: 4rem;
+}
+.menu_item a:hover:not(#menu_icon a){
+    transition: 1.5s;
+    background-color: rgba(30, 26, 108, 0.403);
+}
+
+/*Estilizar header_menu Termina*/
+
+/*Estilizar slider Começa*/
+
+#slider{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+}
+.card{
+    border: .5rem solid white;
+    width: calc(100% / 3 - 8%);
+    height: 70vh;
+    position: relative;
+}
+.card_background{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position:absolute;
+    opacity: 1;
+}
+.card_image{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    position: relative;
+}
+.card_image:hover,.button_controller:hover{
+    transition: .3s;
+    transform: scale(1.1);
+}
+.card_title{
+    font-size: 2rem;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+/*Estilizar controller Começa*/
+
+#controller{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+    position: relative;
+    gap: 5rem;
+}
+.button_controller{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1;
+    
+}
+#controller_line{
+    background-color: white;
+    width: 50%;
+    height: 2px;
+    position: absolute;
+}
+
+/*Estilizar controller Terminar*/
+
+/*Estilizar slider Termina*/
+
+
+

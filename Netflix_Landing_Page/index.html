@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            background-image: url('background.jpg');
+            font-family: arial;
+        }
+        body::before{
+            content: '';
+            background-color: rgb(0,0,0, .5);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        #logo img{
+            height: 45px;
+            width: 167px;
+        }
+        #header{
+            padding-top: 1.3rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        #container{
+            display: flex;
+            justify-content: center;
+        }
+        #info{
+            background-color: rgb(0,0,0,.8);
+            position: relative;
+            box-sizing: border-box;
+            border-radius: 10px;
+            color: gray;
+            padding: 60px;
+            max-width: 400px;
+        }
+        h1{
+            color: white;
+            font-size: 32px;
+            margin-top: 0;
+        }
+        form input{
+            height: 50px;
+            width: 100%;
+            margin-bottom: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+        }
+        form input:hover{
+            background-color: #444;
+        }
+        #button{
+            background-color: #e50914;
+            height: 50px;
+            width: 100%;
+            border-radius: 3px;
+        }
+        ::placeholder{
+            padding: 1rem;
+            color: white;
+        }
+        #facebook{
+            display: flex;
+            align-items: center;
+            align-content: center;
+        }
+        #facebook img{
+            height: 20px;
+            width: 20px;
+        }
+        #support{
+            color: #b3b3b3;
+            font-size: 12px;
+         
+        }
+        a{
+            text-decoration: none;
+        }
+        #remember{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            align-content: center;
+            margin-bottom: 4rem;
+        }
+        #login_face{
+            display: flex;
+            align-items: center;
+        }
+        #login_face span{
+            margin-left: 10px;
+        }
+        p a{
+            margin-left: 10px;
+        }
+        #Extra{
+            text-align: left;
+        }
+        #addInfo{
+            margin-top: 2rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div id="logo">
+            <a href="#"><img src="netflixlogo.png" alt=""></a>
+        </div>
+    </div>
+    <div id="container">
+        <div id="info">
+            <h1>Entrar</h1>
+            <form>
+                <div class="inputBox">
+                    <input type="email" name="" id="" placeholder="email ou número de telefone">
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="" id="" placeholder="Senha">
+                </div>
+                <div class="inputBox">
+                    <input type="button"  id="button" value="Entrar">
+                </div>
+            </form>
+            <div id="support">
+                <div id="remember">
+                            <span>
+                                <input type="checkbox" name="checkbox" id="">
+                                <label for="checkbox">Lembre-se de mim</label>
+                            </span>
+                    <a href="#">Precisa de ajuda?</a>
+                    </div>
+                <div id="login_face">
+                        <div id="facebook">
+                            <a href="#"><img src="Facebook_logo.png" alt=""></a>
+                        </div>
+                        <span>Conectar com facebook</span>
+                </div>
+                <div id="sign_up"><p>New to Netflix?<a href="#">Sign Up Now</a></p></div>
+            </div>
+            <div id="Extra">This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#" onclick="adicionar()" id="plus">Learn more.</a></div>
+            <p id="addInfo">The information collected by Google reCAPTCHA is subject to the Google Privacy Policy and Terms of Service, and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).</p>
+        </div>
+    </div>
+    <script>
+        window.alert('Esse site foi feito com base no video do canal Larissa Kich')
+        window.alert('https://www.youtube.com/watch?v=hmkTPZ_nOik&t=570s')
+         const plus = document.getElementById('plus')
+         const addInfo = document.getElementById('addInfo')
+        function adicionar(){
+            plus.style.display = "none"
+            addInfo.style.display = "block"
+
+        }
+    </script>
+</body>
+</html>

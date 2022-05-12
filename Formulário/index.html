@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: linear-gradient(125deg,rgb(201, 122, 201),rgb(145, 51, 145));
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #container{
+            width: 80%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #imagePage{
+            width: 50%;
+            height: 100%;
+            background-color: blanchedalmond;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        #form{
+            width: 50%;
+            height:100%;
+            background-color: whitesmoke;
+        }
+        form{
+            padding: 50px;
+        }
+        #título{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        #nome{
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 5px;
+        }
+        #contato{
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 5px;
+        }
+        #segurança{
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 5px;
+        }
+        #genero{
+            display: flex;
+            justify-content: space-between;
+        }
+        #gentitle{
+            padding-bottom: 10px;
+        }
+        #botão{
+            background-color: violet;
+            border: none;
+            border-radius: 10px;
+            padding: 3px 20px 3px 20px;
+        }
+       .txt{
+           padding: 5px;
+           margin-top: 5px;
+       }
+       h1::after{
+            content: '';
+            display: block;
+            width: 5rem;
+            height: .3rem;
+            background-color: plum;;
+       }
+       #enviar{
+           margin-top: 20px;
+           padding: 10px;
+           width: 100%;
+           background-color: plum;
+           border: none;
+       }
+       @media (max-width: 1190px){
+        form{
+            padding: 30px;
+        }
+       }
+       @media (max-width: 1040px){
+        form{
+            padding: 15px;
+        }
+       }
+       @media (max-width: 1007px){
+        #imagePage{
+            display: none;
+        }
+        #form{
+            width: 55%;
+        }
+    }
+        @media (max-width: 915px){
+            #form{
+            width: 60%;
+        } 
+       
+    }
+    @media (max-width: 845px){
+            #form{
+            width: 65%;
+        } 
+    }
+    @media (max-width: 778px){
+            #form{
+            width: 75%;
+        } 
+    }
+    @media (max-width: 672px){
+            #form{
+            width: 80%;
+        } 
+    }
+    @media (max-width: 628px){
+            #form{
+            width: 85%;
+        } 
+    }
+    @media (max-width: 591px){
+            #form{
+            width: 90%;
+        } 
+    }
+    @media (max-width: 558px){
+            #form{
+            width: 100%;
+        } 
+    }
+    @media (max-width: 504px){
+        #nome{
+               flex-direction: column;
+               align-items: center;
+               padding-bottom: 0;
+           }
+           #contato{
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 0;
+        }
+        #segurança{
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 0;
+        }
+        #genero{
+            flex-direction: column;
+            align-items: flex-start;
+            padding-bottom: 0;
+        }
+        body{
+            height: inherit;
+        }
+        p{
+            margin-top: 10px;
+        }
+    }
+
+    </style>
+</head>
+<body>
+       <div id="container">
+           <div id="imagePage">
+               <img src="Imagem_svg.svg" alt="">
+           </div>
+            <div id="form">
+                <form action="">
+                    <div id="título">
+                        <h1>Cadastrar-se</h1>
+                        <input type="button" value="Entrar" id="botão">
+                    </div>
+                    <div id="nome">
+                        <div id="primNome">
+                            <p>Digite o seu primeiro nome</p>
+                            <input type="text" name="" class="txt">
+                        </div>
+                        <div id="ultNome">
+                            <p>Digite o seu último nome</p>
+                            <input type="text" class="txt">
+                        </div>
+                    </div>
+                    <div id="contato">
+                        <div id="email">
+                            <p>Digite o seu E-mail</p>
+                            <input type="email" name="" class="txt">
+                        </div>
+                        <div id="telefone">
+                            <p>Digite o seu número</p>
+                            <input type="number" name="" class="txt" min="0">
+                        </div>
+                    </div>
+                    <div id="segurança">
+                        <div id="senha">
+                            <p>Digite sua senha</p>
+                            <input type="password" name="" id="" class="txt">
+                        </div>
+                        <div id="confSenha">
+                            <p>Confirme sua senha</p>
+                            <input type="password" name="" id="" class="txt">
+                        </div>
+                    </div>
+                    <p id="gentitle">Gênero</p>
+                    <div id="genero">
+                            <div id="sexmasc">
+                                <input type="radio" name="sexo" id="masc">
+                                <label for="masc">Masculino</label>
+                            </div>
+                            <div id="sexfem">
+                                <input type="radio" name="sexo" id="fem">
+                                <label for="fem">Feminino</label>
+                            </div>
+                            <div id="sexoutros">
+                                <input type="radio" name="sexo" id="outros">
+                                <label for="outros">Outros</label>
+                            </div>
+                            <div id="sexnãodizer">
+                                <input type="radio" name="sexo" id="nãoDizer">
+                                <label for="nãoDizer">Prefiro não dizer</label>
+                            </div>
+                    </div>
+                    <input type="button" value="Enviar" id="enviar">
+                </form>
+            </div>
+       </div>
+       <script>
+            window.alert('Esse site foi feito com base no video do canal Larissa Kich')
+            window.alert('https://www.youtube.com/watch?v=zWw0npNDkVM&t=381s')
+       </script>
+</body>
+</html>

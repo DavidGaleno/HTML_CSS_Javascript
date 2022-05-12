@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Contrail+One&family=Open+Sans&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans',sans-serif;
+
+        }
+        body{
+            height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(120deg,#ffe53bd8,#ff2525da);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #relógio{
+            width: 600px;
+            height: 300px;
+            background-color: transparent;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0px 8px 10px rgba(0,0,0,.5);
+        }
+        .painel{
+            background-color: black;
+            height: 70%;
+            width: 30%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 0px 8px 10px rgba(0,0,0,.5);
+        }
+        .timer{
+           font-size: 40px;
+           padding-bottom: 1rem;
+        }
+        .legenda{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+            <div id="relógio">
+                <div class="painel">
+                    <span  id="horas" class="timer">00</span>
+                    <span class="legenda">Horas</span>
+                </div>
+                <div class="painel">
+                    <span id="minutos" class="timer">00</span>
+                    <span class="legenda">Minutos</span>
+                </div>
+                <div class="painel">
+                    <span id="segundos" class="timer">00</span>
+                    <span class="legenda">Segundos</span>
+                </div>
+            </div>
+<script>
+    window.alert('Esse site foi feito com base no video do canal Larissa Kich')
+    window.alert('https://www.youtube.com/watch?v=GK0ok3ZCXwM')
+    const horas = document.getElementById('horas')
+    const minutos = document.getElementById('minutos')
+    const segundos = document.getElementById('segundos')
+    const relógio = setInterval(function time(){
+        let horasReais = new Date().getHours();
+        if(horasReais<10){
+            horasReais = '0'+new Date().getHours()
+        }
+        let minutosReais = new Date().getMinutes();
+        if(minutosReais<10){
+            horasReais = '0'+new Date().getHours()
+        }
+        let segundosReais = new Date().getSeconds();
+        if(segundosReais<10){
+            segundosReais = '0'+new Date().getSeconds();
+        }
+        horas.textContent = horasReais
+        minutos.textContent = minutosReais
+        segundos.textContent = segundosReais
+
+
+    })
+
+
+</script>
+</body>
+</html>
