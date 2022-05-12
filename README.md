@@ -9,7 +9,7 @@ Formulário: https://davidgaleno.github.io/HTML_CSS_Javascript/Formul%C3%A1rio/i
 
 Grid_Frutas: https://davidgaleno.github.io/HTML_CSS_Javascript/Grid_Frutas/index.html 
 
-Spider-men Website: https://github.com/DavidGaleno/HTML_CSS_Javascript/blob/main/Spidermen_Page/index.html
+Spider-men Website: https://github.com/DavidGaleno/HTML_CSS_Javascript/Spidermen_Page/index.html
 
 Restaurante: https://davidgaleno.github.io/HTML_CSS_Javascript/Restaurante/index.html 
 
@@ -21,7 +21,7 @@ Jogo_da_Velha: https://davidgaleno.github.io/HTML_CSS_Javascript/Jogo_da_Velha/i
 
 Relógio_Digital: https://davidgaleno.github.io/HTML_CSS_Javascript/Rel%C3%B3gio_Digital/index.html 
 
-Netflix_Landing_Page: https://github.com/DavidGaleno/HTML_CSS_Javascript/blob/main/Netflix_Landing_Page/index.html 
+Netflix_Landing_Page: https://github.com/DavidGaleno/HTML_CSS_Javascript/Netflix_Landing_Page/index.html 
 
 Trunfo_Alura_Dev: https://davidgaleno.github.io/HTML_CSS_Javascript/Trunfo_AluraDev/index.html
 
