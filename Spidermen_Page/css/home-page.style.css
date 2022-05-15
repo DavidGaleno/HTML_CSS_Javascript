@@ -8,7 +8,7 @@ body::before{
     background-image: url('../imagens/spider-man-background.png');
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 120%;
     opacity: .1;
     z-index: -1;
     background-repeat: no-repeat;
@@ -43,6 +43,9 @@ body{
 }
 #menu_icon{
     width: 4rem;
+}
+#menu_icon:hover{
+    transform: scale(1.2);
 }
 .menu_item a:hover:not(#menu_icon a){
     transition: 1.5s;

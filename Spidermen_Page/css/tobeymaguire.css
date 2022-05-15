@@ -1,0 +1,59 @@
+@import url(reset.css);
+@import url(global.css);
+
+/* Estrutura da página começa */
+
+#wrapper{
+    display: flex;
+    height: 100vh;
+    flex-flow: row nowrap;
+}
+aside{
+   width: 100px;
+   height: 100%;
+   background-color: black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+main{
+    height: 100%;
+    width: 100%;
+    background-color: gray;
+    padding-left: 30px;
+}
+
+/* Estrutura da página termina */
+#controller{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        gap: 5rem;
+}
+.button_controller{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    background-color: black;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+.button_controller:hover,.button_controller.active{
+    background-color: white;
+    color: black;
+}
+#controller_line{
+    height: 100%;
+    width: 2px;
+    background-color: white;
+    position: absolute;
+}
