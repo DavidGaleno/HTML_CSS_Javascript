@@ -65,12 +65,20 @@ body{
     height: 70vh;
     position: relative;
 }
+.card-hovered{
+    width: 100%;
+    
+}
+.card-hovered .card_image{
+    transform: scale(1.2);
+    transition: .7s ease-in-out; 
+}
+
 .card_background{
     height: 100%;
     width: 100%;
     object-fit: cover;
     position:absolute;
-    opacity: 1;
 }
 .card_image{
     height: 100%;
@@ -78,7 +86,7 @@ body{
     object-fit: contain;
     position: relative;
 }
-.card_image:hover,.button_controller:hover{
+.button_controller:hover{
     transition: .3s;
     transform: scale(1.1);
 }
