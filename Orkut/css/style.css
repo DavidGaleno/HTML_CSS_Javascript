@@ -1,0 +1,139 @@
+@import url(reset.css);
+/* Global Configurations */
+
+:root{
+    background-color: #F0c9ea;
+    --primaryColor : #EA2490;
+    font-family: 'Segoe UI', Helvetica, Arial, Verdana, sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.colored_word{
+    color: var(--primaryColor);
+}
+
+input{
+    border: 1px solid black;
+}
+
+a{
+    color: black;
+}
+
+/* Global Configurations */
+
+/* Orkut Logo and Subtitle*/
+
+#logo_Orkut_interna{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#logo_Orkut_interna img{
+    width: 100px;
+}
+
+#logo_Orkut_externa{
+    display: none;
+}
+
+#subtitle{
+    display: none;
+}
+
+/* Orkut Logo */
+
+/* Login Screen */
+
+#login_container{
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    width: 80%;
+    max-width: 366.4px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 1px 4px 33px 15px rgba(234,36,144,0.2);
+}
+
+#login_title{
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+#user_box input, #password_box input{
+    width: 100%;
+    height: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+#button_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 12px;
+}
+
+#confirm_button{
+    background-color: var(--primaryColor);
+    width: 100%;
+    border-radius: 10px;
+    height: 2.5rem;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+#button_box{
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+}
+
+/* Login Screen */
+
+
+/* Media Querry */
+
+@media(min-width:1000px){
+#subtitulo{
+    width: 80%;
+}
+}
+  
+@media(min-width:750px){
+    #logo_Orkut_interna{
+        display: none;
+    }
+    #logo_Orkut_externa{
+        display: block;
+    }
+    #logo_Orkut_externa img{
+        width: 50%;
+    }
+    #login_container{
+        width: 50%;
+    }
+    #logo_Orkut_externa{
+        width: 50%;
+    }
+    #subtitulo{
+        display: block;
+        font-weight: 500;
+        font-size: 20px;
+        width: 80%;
+    }
+}
+
+/* Media Querry */
