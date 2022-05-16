@@ -9,7 +9,7 @@ Formulário: https://davidgaleno.github.io/HTML_CSS_Javascript/Formul%C3%A1rio/i
 
 Grid_Frutas: https://davidgaleno.github.io/HTML_CSS_Javascript/Grid_Frutas/index.html 
 
-Spider-men Website: https://davidgaleno.github.io/HTML_CSS_Javascript/Spidermen_Page/index.html
+Spider-men Website: https://davidgaleno.github.io/HTML_CSS_Javascript/Spidermen_Page/pages/index.html
 
 Restaurante: https://davidgaleno.github.io/HTML_CSS_Javascript/Restaurante/index.html 
 
