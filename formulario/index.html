@@ -176,6 +176,11 @@
             margin-top: 10px;
         }
     }
+    @media (max-width:363px){
+        h1{
+            font-size: 25px;
+        }
+    }
 
     </style>
 </head>
@@ -193,31 +198,31 @@
                     </div>
                     <div id="nome">
                         <div id="primNome">
-                            <p>Digite o seu primeiro nome</p>
+                            <p>Primeiro nome</p>
                             <input type="text" name="nome" class="txt">
                         </div>
                         <div id="ultNome">
-                            <p>Digite o seu último nome</p>
+                            <p>Último nome</p>
                             <input type="text" name="sobrenome" class="txt">
                         </div>
                     </div>
                     <div id="contato">
                         <div id="email">
-                            <p>Digite o seu E-mail</p>
+                            <p>E-mail</p>
                             <input type="email" name="email" class="txt">
                         </div>
                         <div id="telefone" >
-                            <p>Digite o seu número</p>
+                            <p>Telefone</p>
                             <input type="number" name="telefone" class="txt" min="0">
                         </div>
                     </div>
                     <div id="segurança">
                         <div id="senha">
-                            <p>Digite sua senha</p>
+                            <p>Senha</p>
                             <input type="password" name="password" id="" class="txt">
                         </div>
                         <div id="confSenha">
-                            <p>Confirme sua senha</p>
+                            <p>Confirmar Senha</p>
                             <input type="password" name="" id="" class="txt">
                         </div>
                     </div>
@@ -240,7 +245,7 @@
                                 <label for="nãoDizer">Prefiro não dizer</label>
                             </div>
                     </div>
-                    <button>Enviar</button>
+                    <button id="enviar">Enviar</button>
                 </form>
             </div>
        </div>
