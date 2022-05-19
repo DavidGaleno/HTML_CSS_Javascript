@@ -5,7 +5,7 @@ Landing_Page_Academia: https://davidgaleno.github.io/HTML_CSS_Javascript/Academi
 
 Afazeres_Lista: https://davidgaleno.github.io/HTML_CSS_Javascript/Afazeres_Lista/index.html 
 
-Formulário: https://davidgaleno.github.io/HTML_CSS_Javascript/Formul%C3%A1rio/index.html 
+Formulário: https://davidgaleno.github.io/HTML_CSS_Javascript/formulario/index.html 
 
 Grid_Frutas: https://davidgaleno.github.io/HTML_CSS_Javascript/Grid_Frutas/index.html 
 
