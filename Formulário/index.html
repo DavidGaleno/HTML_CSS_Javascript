@@ -14,7 +14,6 @@
             background-image: linear-gradient(125deg,rgb(201, 122, 201),rgb(145, 51, 145));
             height: 100vh;
             width: 100vw;
-            flex-direction: column;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,7 +34,7 @@
             width: 100%;
             height: 100%;
         }
-        #form_container{
+        #form{
             width: 50%;
             height:100%;
             background-color: whitesmoke;
@@ -180,13 +179,12 @@
     </style>
 </head>
 <body>
-    <script src="axios.js"></script>
        <div id="container">
            <div id="imagePage">
                <img src="Imagem_svg.svg" alt="">
            </div>
-            <div id="form_container" >
-                <form  id="formulario" method="post" name="usuarioForm" action="pastaTeste">
+            <div id="form">
+                <form action="">
                     <div id="título">
                         <h1>Cadastrar-se</h1>
                         <input type="button" value="Entrar" id="botão">
@@ -194,27 +192,27 @@
                     <div id="nome">
                         <div id="primNome">
                             <p>Digite o seu primeiro nome</p>
-                            <input type="text" name="nome" class="txt">
+                            <input type="text" name="" class="txt">
                         </div>
                         <div id="ultNome">
                             <p>Digite o seu último nome</p>
-                            <input type="text" name="sobrenome" class="txt">
+                            <input type="text" class="txt">
                         </div>
                     </div>
                     <div id="contato">
                         <div id="email">
                             <p>Digite o seu E-mail</p>
-                            <input type="email" name="email" class="txt">
+                            <input type="email" name="" class="txt">
                         </div>
-                        <div id="telefone" >
+                        <div id="telefone">
                             <p>Digite o seu número</p>
-                            <input type="number" name="telefone" class="txt" min="0">
+                            <input type="number" name="" class="txt" min="0">
                         </div>
                     </div>
                     <div id="segurança">
                         <div id="senha">
                             <p>Digite sua senha</p>
-                            <input type="password" name="password" id="" class="txt">
+                            <input type="password" name="" id="" class="txt">
                         </div>
                         <div id="confSenha">
                             <p>Confirme sua senha</p>
@@ -224,56 +222,29 @@
                     <p id="gentitle">Gênero</p>
                     <div id="genero">
                             <div id="sexmasc">
-                                <input type="radio" name="masculino" id="masc">
+                                <input type="radio" name="sexo" id="masc">
                                 <label for="masc">Masculino</label>
                             </div>
                             <div id="sexfem">
-                                <input type="radio" name="feminino" id="fem">
+                                <input type="radio" name="sexo" id="fem">
                                 <label for="fem">Feminino</label>
                             </div>
                             <div id="sexoutros">
-                                <input type="radio" name="outros" id="outros">
+                                <input type="radio" name="sexo" id="outros">
                                 <label for="outros">Outros</label>
                             </div>
                             <div id="sexnãodizer">
-                                <input type="radio" name="privado" id="nãoDizer">
+                                <input type="radio" name="sexo" id="nãoDizer">
                                 <label for="nãoDizer">Prefiro não dizer</label>
                             </div>
                     </div>
-                    <button>Enviar</button>
+                    <input type="button" value="Enviar" id="enviar">
                 </form>
             </div>
        </div>
-       <div id="resultado"></div>
        <script>
-
-            function ExibirResultados(dados){
-                const sla = JSON.stringify(dados)
-                document.getElementById('resultado').innerHTML = sla
-            }
-            document.usuarioForm.onsubmit = async e=>{
-                e.preventDefault()
-                const form = e.target
-                const data = new FormData(form)
-
-                const options ={
-                method : form.method,
-                body : new URLSearchParams(data)
-            }  
-            axios.post('pastaTeste',options.body        ).then(resp => ExibirResultados(resp.data))
-        }  
-
-                /*fetch(form.action, options)
-                .then(resposta => resposta.json())
-                .then(json => {
-                    const resultado = document.getElementById('resultado')
-                    resultado.innerHTML = JSON.stringify(json)
-                })
-                .catch(e =>{
-                    const resultado = document.getElementById('resultado')
-                    resultado.innerHTML = 'erro'
-                })*/
-            
+            window.alert('Esse site foi feito com base no video do canal Larissa Kich')
+            window.alert('https://www.youtube.com/watch?v=zWw0npNDkVM&t=381s')
        </script>
 </body>
 </html>
