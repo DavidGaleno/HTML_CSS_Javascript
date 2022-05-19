@@ -125,8 +125,6 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            align-items: center;
-
         }
 
         #enviar{
@@ -138,46 +136,49 @@
        
         /* Formulário Inicia */
 
-        @media screen and (max-width:1219px){
+        @media screen and (max-width:1187px){
+            #form_container{
+                padding: 2rem;
+            }
+           
+        }
+        @media screen and (max-width:1106px){
             #form_container{
                 padding: 1rem;
             }
-            .input-box,#gen-options{
-            margin-bottom: 3.5rem;
         }
-        }
-        @media screen and (max-width:1042px){
+        @media screen and (max-width:1023px){
             #imagePage{
                 display: none;
             }
-            
-            #form_container{
-                width: 70%;
+            #container{
+                width: 50%;
                 height: auto;
             }
-            #input-group{
-                justify-content: space-around;
-            }
-        }
-        @media screen and (max-width:752px){
-            #form_container{
-                width: 80%;
-            }
-        }
-        @media screen and (max-width:662px){
-           #form_container{
-               width: 90%;
-           }
-        }
-        @media screen and (max-width:581px){
             #form_container{
                 width: 100%;
             }
         }
+
+        @media screen and (max-width:831px){
+            #container{
+                width: 60%;
+            }
+        }
+        @media screen and (max-width:692px){
+           #container{
+               width: 70%;
+           }
+        }
+        @media screen and (max-width:593px){
+            #container{
+               width: 80%;
+           }
+        }
         @media screen and (max-width:519px) {
             #input-group{
                 overflow-y: scroll;
-                max-height: 19rem;
+                max-height: 10rem;
                 flex-direction: column;
                 flex-wrap: nowrap;
             }
@@ -187,15 +188,13 @@
             .txt{
                 width: 95%;
             }
-            #imagePage{
-                display: none;
-            }
             #container{
                 width: 80%;
                 height: 80%;
             }
-            #form_container{
-                height: auto;
+            #gen-options{
+                justify-content: flex-start;
+                flex-direction: column;
             }
         }
         @media screen and (max-width:415px){
@@ -212,11 +211,7 @@
                 width: 4rem;
             }
         }
-        @media screen and (max-height: 548px){
-            #form_container{
-                height: auto;
-            }
-        }
+       
 
     </style>
 </head>

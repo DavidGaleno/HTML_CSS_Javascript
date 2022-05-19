@@ -11,10 +11,12 @@
 aside{
    width: 100px;
    height: 100%;
-   background-color: black;
+   background-color: rgba(0, 0, 0, 0.161);
    display: flex;
    justify-content: center;
    align-items: center;
+   position: fixed;
+   z-index: 100;
 }
 main{
     height: 100%;
@@ -56,4 +58,16 @@ main{
     width: 2px;
     background-color: white;
     position: absolute;
+}
+#main-section{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#bottom-section{
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
