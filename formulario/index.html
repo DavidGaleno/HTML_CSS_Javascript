@@ -6,181 +6,214 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /* Configurações Gerais Inicia */
+
         *{
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        body{
-            background-image: linear-gradient(125deg,rgb(201, 122, 201),rgb(145, 51, 145));
-            height: 100vh;
-            width: 100vw;
-            flex-direction: column;
+
+        :root{
+            --primary-color: #e9688a;
+        }
+
+        body,#container{ 
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: center;}
+
+        body{
+            background-color:var(--primary-color);
+            height: 100vh;
+            width: 100%;
+            flex-direction: column; 
         }
+
         #container{
             width: 80%;
             height: 80%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
-        #imagePage{
+
+        #imagePage,#form_container{
             width: 50%;
             height: 100%;
+        }
+
+        button{
+            background-color:var(--primary-color);
+            border: none;
+            color: white;
+            font-size: 1rem;
+        }
+
+        /* Configurações Gerais Termina */
+
+        /* Imagem Inicia */
+        
+        #imagePage{
             background-color: blanchedalmond;
         }
+
         img{
             width: 100%;
             height: 100%;
         }
+
+        /* Imagem Termina */
+
+        /* Formulário Inicia */
+
         #form_container{
-            width: 50%;
-            height:100%;
             background-color: whitesmoke;
+            padding: 3rem;
         }
-        form{
-            padding: 50px;
-        }
+
         #título{
             display: flex;
             justify-content: space-between;
-            margin-bottom: 30px;
+            margin-bottom: 1rem;
         }
-        #nome{
-            display: flex;
-            justify-content: space-between;
-            padding-bottom: 5px;
+        
+        #entrar{
+            font-size: 1rem;
+            padding: .8rem;
+            width: 7rem;
+            border-radius: .4rem;
         }
-        #contato{
-            display: flex;
-            justify-content: space-between;
-            padding-bottom: 5px;
+
+        h1{
+            position: relative;
         }
-        #segurança{
-            display: flex;
-            justify-content: space-between;
-            padding-bottom: 5px;
-        }
-        #genero{
-            display: flex;
-            justify-content: space-between;
-        }
-        #gentitle{
-            padding-bottom: 10px;
-        }
-        #botão{
-            background-color: violet;
-            border: none;
-            border-radius: 10px;
-            padding: 3px 20px 3px 20px;
-        }
-       .txt{
-           padding: 5px;
-           margin-top: 5px;
-       }
-       h1::after{
+
+        h1::after{
             content: '';
             display: block;
-            width: 5rem;
             height: .3rem;
-            background-color: plum;;
-       }
-       #enviar{
-           margin-top: 20px;
-           padding: 10px;
-           width: 100%;
-           background-color: plum;
-           border: none;
-       }
-       @media (max-width: 1190px){
-        form{
-            padding: 30px;
+            width: 50%;
+            background-color: var(--primary-color);
+            position: absolute;
         }
-       }
-       @media (max-width: 1040px){
-        form{
-            padding: 15px;
+
+        #input-group{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
-       }
-       @media (max-width: 1007px){
-        #imagePage{
-            display: none;
+
+        .input-box{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
         }
-        #form_container{
-            width: 55%;
+
+        .input-box,#gen-options{
+            margin-bottom: 1rem;
         }
-    }
-        @media (max-width: 915px){
-            #form_container{
-            width: 60%;
-        } 
-       
-    }
-    @media (max-width: 845px){
-            #form_container{
-            width: 65%;
-        } 
-    }
-    @media (max-width: 778px){
-            #form_container{
-            width: 75%;
-        } 
-    }
-    @media (max-width: 672px){
-            #form_container{
-            width: 80%;
-        } 
-    }
-    @media (max-width: 628px){
-            #form_container{
-            width: 85%;
-        } 
-    }
-    @media (max-width: 591px){
-            #form_container{
-            width: 90%;
-        } 
-    }
-    @media (max-width: 558px){
-            #form_container{
+
+        #gentitle{
+            margin-bottom: .3rem;
+        }
+
+        .txt{
+            padding: .4rem;
+
+        }
+
+        #gen-options{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        #enviar{
             width: 100%;
-        } 
-    }
-    @media (max-width: 504px){
-        #nome{
-               flex-direction: column;
-               align-items: center;
-               padding-bottom: 0;
+            padding: .8rem;
+            border-radius: 1rem;
+            font-size: 1.2rem;
+        }
+       
+        /* Formulário Inicia */
+
+        @media screen and (max-width:1219px){
+            #form_container{
+                padding: 1rem;
+            }
+            .input-box,#gen-options{
+            margin-bottom: 3.5rem;
+        }
+        }
+        @media screen and (max-width:1042px){
+            #imagePage{
+                display: none;
+            }
+            
+            #form_container{
+                width: 70%;
+                height: auto;
+            }
+        }
+        @media screen and (max-width:752px){
+            #form_container{
+                width: 80%;
+            }
+        }
+        @media screen and (max-width:662px){
+           #form_container{
+               width: 90%;
            }
-           #contato{
-            flex-direction: column;
-            align-items: center;
-            padding-bottom: 0;
         }
-        #segurança{
-            flex-direction: column;
-            align-items: center;
-            padding-bottom: 0;
+        @media screen and (max-width:581px){
+            #form_container{
+                width: 100%;
+            }
         }
-        #genero{
-            flex-direction: column;
-            align-items: flex-start;
-            padding-bottom: 0;
+        @media screen and (max-width:519px) {
+            #input-group{
+                overflow-y: scroll;
+                max-height: 19rem;
+                flex-direction: column;
+                flex-wrap: nowrap;
+            }
+            .input-box{
+                width: 100%;
+            }
+            .txt{
+                width: 95%;
+            }
+            #imagePage{
+                display: none;
+            }
+            #container{
+                width: 80%;
+                height: 80%;
+            }
+            #form_container{
+                height: auto;
+            }
         }
-        body{
-            height: 130%;
+        @media screen and (max-width:415px){
+            h1{
+                font-size: 1.5rem;
+            }
+            #entrar{
+                width: 5rem;
+            }
         }
-        p{
-            margin-top: 10px;
+        @media screen and (max-width:415px){
+            #entrar{
+                padding: .2rem;
+                width: 4rem;
+            }
         }
-    }
-    @media (max-width:363px){
-        h1{
-            font-size: 25px;
+        @media screen and (max-height: 548px){
+            #form_container{
+                height: auto;
+            }
         }
-    }
 
     </style>
 </head>
@@ -194,61 +227,61 @@
                 <form  id="formulario" method="post" name="usuarioForm" action="pastaTeste">
                     <div id="título">
                         <h1>Cadastrar-se</h1>
-                        <input type="button" value="Entrar" id="botão">
+                        <button id="entrar">Entrar</button>
                     </div>
-                    <div id="nome">
-                        <div id="primNome">
-                            <p>Primeiro nome</p>
-                            <input type="text" name="nome" class="txt">
-                        </div>
-                        <div id="ultNome">
-                            <p>Último nome</p>
-                            <input type="text" name="sobrenome" class="txt">
-                        </div>
-                    </div>
-                    <div id="contato">
-                        <div id="email">
-                            <p>E-mail</p>
-                            <input type="email" name="email" class="txt">
-                        </div>
-                        <div id="telefone" >
-                            <p>Telefone</p>
-                            <input type="number" name="telefone" class="txt" min="0">
-                        </div>
-                    </div>
-                    <div id="segurança">
-                        <div id="senha">
-                            <p>Senha</p>
-                            <input type="password" name="password" id="" class="txt">
-                        </div>
-                        <div id="confSenha">
-                            <p>Confirmar Senha</p>
-                            <input type="password" name="" id="" class="txt">
-                        </div>
-                    </div>
-                    <p id="gentitle">Gênero</p>
-                    <div id="genero">
-                            <div id="sexmasc">
-                                <input type="radio" name="masculino" id="masc">
-                                <label for="masc">Masculino</label>
+                    <div id="input-group">
+                        <div class="input-box">
+                            <label for="primeiroNome">Primeiro Nome</label>
+                                <input  id="primeiroNome" type="text" name="nome" class="txt" placeholder="Ex:David">
                             </div>
-                            <div id="sexfem">
-                                <input type="radio" name="feminino" id="fem">
-                                <label for="fem">Feminino</label>
+                            <div class="input-box">
+                                <label for="lastName">Último Nome</label>
+                                <input  id="lastName" type="text" name="sobrenome" class="txt" placeholder="Ex:Galeno">
                             </div>
-                            <div id="sexoutros">
-                                <input type="radio" name="outros" id="outros">
-                                <label for="outros">Outros</label>
+                        <div id="contato" class="input-box">
+                                <label for="email">E-mail</label>
+                                <input type="email" name="email"  id="email" class="txt" placeholder="Ex:davidgaleno411@gmail.com">
+                        </div>
+                            <div id="telefone" class="input-box">
+                                <label for="telefone">Telefone</label>
+                                <input type="number" name="telefone" class="txt" min="0" id="telefone" placeholder="Ex: (51) 94002-8922">
                             </div>
-                            <div id="sexnãodizer">
-                                <input type="radio" name="privado" id="nãoDizer">
-                                <label for="nãoDizer">Prefiro não dizer</label>
+                                <div id="senha" class="input-box">
+                                    <label for="senha">Senha</label>
+                                    <input type="password" name="password" id="senha" class="txt" placeholder="Nunca use 1234">
+                                </div>
+                                <div id="confirmar-senha"  class="input-box">
+                                    <label for="confirmar-senha">Confirmar Senha</p>
+                                    <input type="password" name="" id="confirmar-senha" class="txt" placeholder="Nunca use 1234">
+                                </div>
                             </div>
+                        <div id="genero">
+                        <div id="gentitle">
+                            <p>Gênero</p>
+                        </div>
+                                <div id="gen-options">
+                                    <div id="sexmasc">
+                                        <input type="radio" name="masculino" id="masc">
+                                        <label for="masc">Masculino</label>
+                                    </div>
+                                    <div id="sexfem">
+                                        <input type="radio" name="feminino" id="fem">
+                                        <label for="fem">Feminino</label>
+                                    </div>
+                                    <div id="sexoutros">
+                                        <input type="radio" name="outros" id="outros">
+                                        <label for="outros">Outros</label>
+                                    </div>
+                                    <div id="sexnãodizer">
+                                        <input type="radio" name="privado" id="nãoDizer">
+                                        <label for="nãoDizer">Prefiro não dizer</label>
+                                    </div>
+                                </div>
+                        </div>
+                        <button id="enviar">Enviar</button>
+                    </form>
                     </div>
-                    <button id="enviar">Enviar</button>
-                </form>
             </div>
-       </div>
        <div id="resultado"></div>
        <script>
 
