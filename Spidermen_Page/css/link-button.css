@@ -1,0 +1,29 @@
+.link-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.link-button .icon{
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-color);
+    border: solid 1px white;
+    background-clip: content-box;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.link-button .label{
+    margin-left: 10px;
+}
+#play-icon{
+    width: 0;
+    height: 0;
+    border: solid 9px white;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent; 
+}

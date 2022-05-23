@@ -1,0 +1,12 @@
+.pills ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.pills li{
+    background-color: var(--primary-color);
+    padding: 0.313rem 0.938rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+}

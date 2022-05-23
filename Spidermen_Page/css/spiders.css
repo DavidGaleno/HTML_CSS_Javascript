@@ -1,5 +1,8 @@
 @import url(reset.css);
 @import url(global.css);
+@import url('../components/pills.css');
+@import url('link-button.css');
+@import url('gallery.css');
 
 /* Estrutura da página começa */
 
@@ -11,7 +14,7 @@
 aside{
    width: 100px;
    height: 100%;
-   background-color: rgba(0, 0, 0, 0.161);
+   background-color: rgba(0, 0, 0, 0.091);
    display: flex;
    justify-content: center;
    align-items: center;
@@ -22,7 +25,8 @@ main{
     height: 100%;
     width: 100%;
     background-color: gray;
-    padding-left: 30px;
+    padding-left: 8rem;
+    position: relative;
 }
 
 /* Estrutura da página termina */
@@ -59,15 +63,50 @@ main{
     background-color: white;
     position: absolute;
 }
-#main-section{
+#main-section-top{
     height: 80vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
 }
-#bottom-section{
+
+#main-section-bottom{
     height: 20vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
+
+#logo img{
+    width: 39rem;
+    margin-top: 2.5rem;
+    margin-left: 0;
+    margin-bottom:1.875rem ;
+}
+
+#description{
+    background-color:rgba(0,0,0,.7);
+    max-width: 80%;
+    padding: 1.25rem;
+    border-radius: 10px;
+}
+#description-text{
+    color: white;
+    line-height:170%;
+    text-align: justify;
+    font-size: .8rem;
+}
+.pills{
+    margin-bottom: 1.25rem;
+}
+#links{
+    padding: 20px;
+    padding-left: 0;
+}
+#links ul {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
