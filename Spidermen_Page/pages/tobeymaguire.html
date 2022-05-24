@@ -6,19 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spider-men | Tobey Maguire</title>
     <link rel="stylesheet" href="../css/spiders.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
 </head>
 <body>
-    <div id="wrapper">
+    
+    <div id="wrapper"> 
+        <video loop autoplay muted >
+            <source src="../videos/spiderman-2002-trailer.mp4" type="video/mp4">
+        </video>
     <aside id="navigator">
                 <ul id="controller">
                     <li>
-                        <a class="button_controller" href="">01</a>
+                        <a class="button_controller" id="1" >01</a>
                     </li>
                     <li>
-                        <a class="button_controller" href="">02</a>
+                        <a class="button_controller" id="2" >02</a>
                     </li>
                     <li>
-                        <a class="button_controller" href="">03</a>
+                        <a class="button_controller" id="3">03</a>
                     </li>
                     <li id="controller_line">
                     </li>
@@ -27,7 +35,7 @@
     <main>
             <div id="main-section-top">
                 <div id="logo">
-                    <img src="../imagens/Tobey_Maguire/logo1.png" alt="">
+                    <img src="../imagens/Tobey_Maguire/filme01/logo1.png" id="logo_img" alt="">
                 </div>
                 <div id="description">
                     <div class="pills">
@@ -55,13 +63,15 @@
             <div id="main-section-bottom">
                 <div id="gallery">
                     <ul>
-                        <li><a href=""><img src="../imagens/Tobey_Maguire/image-01.png" alt=""></a></li>
-                        <li><a href=""><img src="../imagens/Tobey_Maguire/image-02.png" alt=""></a></li>
-                        <li><a href=""><img src="../imagens/Tobey_Maguire/image-03.png" alt=""></a></li>
+                        <li><a data-fancybox href="../imagens/Tobey_Maguire/filme01/image-01-full.jpg"><img src="../imagens/Tobey_Maguire/filme01/image-01.png" class ='img_gallery'alt=""></a></li>
+                        <li><a data-fancybox href="../imagens/Tobey_Maguire/filme01/image-02-full.jpg"><img src="../imagens/Tobey_Maguire/filme01/image-02.png" class ='img_gallery' alt=""></a></li>
+                        <li><a data-fancybox href="../imagens/Tobey_Maguire/filme01/image-03-full.jpg"><img src="../imagens/Tobey_Maguire/filme01/image-03.png" class ='img_gallery' alt="" id="img3" ></a></li>
                     </ul>
                 </div>  
             </div>
         </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script src="../script/changeMovieTobey.js"></script>
 </body>
 </html>

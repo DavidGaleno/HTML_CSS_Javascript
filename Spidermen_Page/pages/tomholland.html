@@ -4,9 +4,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Spider-men | Andrew Garfield</title>
+    <link rel="stylesheet" href="../css/spiders.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
 </head>
 <body>
     
+    <div id="wrapper"> 
+        <video loop autoplay muted >
+            <source src="../videos/spiderman-2017-trailer.mp4" type="video/mp4">
+        </video>
+    <aside id="navigator">
+                <ul id="controller">
+                    <li>
+                        <a class="button_controller" id="1" >01</a>
+                    </li>
+                    <li>
+                        <a class="button_controller" id="2" >02</a>
+                    </li>
+                    <li>
+                        <a class="button_controller" id="2" >02</a>
+                    </li>
+                    <li id="controller_line">
+                    </li>
+                </ul>
+    </aside>
+    <main>
+            <div id="main-section-top">
+                <div id="logo">
+                    <img src="../imagens/Tom_Holland/filme01/logo.png" id="logo_img" alt="">
+                </div>
+                <div id="description">
+                    <div class="pills">
+                        <ul>
+                            <li>Ano: 2002</li>
+                            <li>Diretor: Sam Raimi</li>
+                        </ul>
+                    </div>
+                        <div id="description-text">
+                            <p><strong>Sinopse</strong>&nbsp;Inteligente e com um grande interesse pela ciência, Peter tem dificuldade em se relacionar com seus colegas, por ser tímido e por eles o considerarem um nerd. Até que, em uma demonstração científica, um acidente inesperado faz com que aranha modificada geneticamente pique Peter.</p>
+                    </div>
+                </div>  
+                <div id="links">
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=TYMMOjBUPMM" class="link-button" target="_blank">
+                        <span class="icon">
+                            <div id="play-icon">&nbsp;</div>
+                        </span>
+                        <span class="label">Assistir ao trailer</span>
+                    </a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="main-section-bottom">
+                <div id="gallery">
+                    <ul>
+                        <li><a data-fancybox href="../imagens/Tom_Holland/filme01/image-01.png"><img src="../imagens/Tom_Holland/filme01/image-01.png" class ='img_gallery'alt=""></a></li>
+                        <li><a data-fancybox href="../imagens/Tom_Holland/filme01/image-02.png"><img src="../imagens/Tom_Holland/filme01/image-02.png" class ='img_gallery' alt=""></a></li>
+                        <li><a data-fancybox href="../imagens/Tom_Holland/filme01/image-03.png"><img src="../imagens/Tom_Holland/filme01/image-03.png" class ='img_gallery' alt="" id="img3" ></a></li>
+                    </ul>
+                </div>  
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script src="../script/changeMovieTom.js"></script>
 </body>
 </html>

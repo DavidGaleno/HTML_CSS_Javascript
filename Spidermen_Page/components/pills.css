@@ -6,7 +6,7 @@
 
 .pills li{
     background-color: var(--primary-color);
-    padding: 0.313rem 0.938rem;
+    padding: 0.113rem 0.638rem;
     border-radius: 20px;
     text-transform: uppercase;
 }

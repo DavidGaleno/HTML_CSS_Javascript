@@ -14,13 +14,13 @@
                 <a href="#">Página Inicial</a>
             </li>
             <li class="menu_item">
-                <a href="#">Tobey Maguire</a>
+                <a href="../pages/tobeymaguire.html">Tobey Maguire</a>
             </li>
             <li class="menu_item" id="menu_icon">
-                <a href="#"><img src="../imagens/spider.svg" alt=""></a>
+                <a href="#"><img src="../imagens/HomePage/spider.svg" alt=""></a>
             </li>
             <li class="menu_item">
-                <a href="#">Andrew Garfield</a>
+                <a href="../pages/andrewgarfield.html">Andrew Garfield</a>
             </li>
             <li class="menu_item">
                 <a href="#">Tom Holland</a>
@@ -28,30 +28,32 @@
         </ul>
     </nav>
     <div id="slider">
-        <a href="#" class="card" id="Tobey_Maguire">
-            <img class="card_background" src="../imagens/pic-sm-bg-01.jpg" alt="">
-            <img class="card_image" src="../imagens/spider-man-01.png" alt="">
-            <h2 class="card_title">Tobey Maguire</h2>
-        </a>
-        <a href="#" class="card" id="Andrew_Garfield">
-            <img class="card_background" src="../imagens/pic-sm-bg-02.jpg" alt="">
-            <img class="card_image" src="../imagens/spider-man-02.png" alt="">
-            <h2 class="card_title">Andrew Garfield</h2>
-        </a>
-        <a href="#" class="card" id="Tom_Holland">
-            <img class="card_background" src="../imagens/pic-sm-bg-03.jpg" alt="">
-            <img class="card_image" src="../imagens/spider-man-03.png" alt="">
-            <h2 class="card_title">Tom Holland</h2>
-        </a>
+        <div id="carousel"  style="transform: translateZ(-40vw) rotateY(0deg);">
+            <a href="../pages/tobeymaguire.html" class="card" id="Tobey_Maguire">
+                <img class="card_background" src="../imagens/HomePage/pic-sm-bg-01.jpg" alt="">
+                <img class="card_image" src="../imagens/HomePage/spider-man-01.png" alt="">
+                <h2 class="card_title">Tobey Maguire</h2>
+            </a>
+            <a href="#" class="card" id="Andrew_Garfield">
+                <img class="card_background" src="../imagens/HomePage/pic-sm-bg-02.jpg" alt="">
+                <img class="card_image" src="../imagens/HomePage/spider-man-02.png" alt="">
+                <h2 class="card_title">Andrew Garfield</h2>
+            </a>
+            <a href="#" class="card" id="Tom_Holland">
+                <img class="card_background" src="../imagens/HomePage/pic-sm-bg-03.jpg" alt="">
+                <img class="card_image" src="../imagens/HomePage/spider-man-03.png" alt="">
+                <h2 class="card_title">Tom Holland</h2>
+            </a>
+        </div>
     </div>
     <div id="controller">
-        <div class="button_controller">
+        <div id="1"class="button_controller button_controller--active">
             01
         </div>
-        <div class="button_controller">
+        <div id="2" class="button_controller">
             02
         </div>
-        <div class="button_controller">
+        <div id="3" class="button_controller">
             03
         </div>
         <div id="controller_line"></div>

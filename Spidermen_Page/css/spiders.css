@@ -5,11 +5,13 @@
 @import url('gallery.css');
 
 /* Estrutura da página começa */
-
 #wrapper{
     display: flex;
     height: 100vh;
     flex-flow: row nowrap;
+}
+body{
+    overflow: hidden;
 }
 aside{
    width: 100px;
@@ -24,9 +26,9 @@ aside{
 main{
     height: 100%;
     width: 100%;
-    background-color: gray;
     padding-left: 8rem;
     position: relative;
+    background-size: cover;
 }
 
 /* Estrutura da página termina */
@@ -47,7 +49,6 @@ main{
     border-radius: 50%;
     width: 2.5rem;
     height: 2.5rem;
-    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     position: relative;
@@ -64,40 +65,41 @@ main{
     position: absolute;
 }
 #main-section-top{
-    height: 80vh;
+    height: 60vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
 #main-section-bottom{
-    height: 20vh;
+    height: 40vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 
 #logo img{
-    width: 39rem;
-    margin-top: 2.5rem;
+    width: 20rem;
+    margin-top: 1rem;
     margin-left: 0;
-    margin-bottom:1.875rem ;
+    margin-bottom:1rem ;
 }
 
 #description{
     background-color:rgba(0,0,0,.7);
-    max-width: 80%;
+    max-width: 50%;
     padding: 1.25rem;
     border-radius: 10px;
+    min-width: 334px;
 }
 #description-text{
     color: white;
-    line-height:170%;
     text-align: justify;
-    font-size: .8rem;
 }
 .pills{
-    margin-bottom: 1.25rem;
+    margin-bottom: .7rem;
 }
 #links{
     padding: 20px;
@@ -106,6 +108,11 @@ main{
 #links ul {
     display: flex;
     flex-direction: row;
+}
+@media screen and (max-width:513px){
+    #description{
+        min-width: 300px;
+    }
 }
 
 
