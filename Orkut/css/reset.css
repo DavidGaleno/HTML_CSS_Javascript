@@ -7,3 +7,9 @@
     list-style: none;
     text-decoration: none;
 }
+
+:root{
+    background-color: #F0c9ea;
+    --primaryColor : #EA2490;
+    font-family: 'Segoe UI', Helvetica, Arial, Verdana, sans-serif;
+}
