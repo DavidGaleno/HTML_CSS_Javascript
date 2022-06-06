@@ -1,0 +1,158 @@
+@import url(reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&display=swap');
+
+/*Global Configuration Starts */
+
+:root{
+    --green: #00FF82;
+    --black: #180C24;
+    --box-shadow: 0px 10px 40px #00000056;
+}
+
+body{
+    background-color: var(--green);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Sans', sans-serif;
+
+}
+
+main, main #right-section-card{
+    border-radius: 15px;
+}
+
+main #right-section-card-form-password-textbox, main #right-section-card-form-username-textbox, main #right-section-card-form-button{
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    opacity: .9;
+    outline-color: var(--green);
+}
+
+/*Global Configuration Endss */
+
+/*Page Configuration Starts */
+
+main {
+    background-color: var(--black);
+    width: 80%;
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--box-shadow)
+}
+
+main #left-section, main #right-section{
+    width: 50vw;
+    height: 100vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main #left-section{
+    gap: 3rem;
+}
+
+main #left-section-image img{
+    width: 100%;
+}
+
+main #left-section-title h1, main #right-section h2{
+    color: var(--green);
+}
+
+main #left-section-title, main #left-section-image{
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+main #left-section-title{
+    padding-top: 3rem;
+}
+
+main #left-section #left-section-title h1{
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+main #right-section h2{
+    font-size: 3.5rem;
+}
+
+main #right-section-card{
+    background-color: #301E41;
+    width: 100%;
+    padding: 3rem;
+}
+
+main  #right-section-card-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+main #right-section-card-form-username, main #right-section-card-form-password{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: gray;
+}
+
+main #right-section-card-form-password-label, main #right-section-card-form-username-label{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+
+}
+
+main #right-section-card-form-password-textbox, main #right-section-card-form-username-textbox{
+    width: 100%;
+    height: 4rem;
+    background-color: #57456C; 
+    padding: 2rem;
+    color: white;
+}
+main #right-section-card-form-button{
+    width: 100%;
+    height: 4.5rem;
+    font-size: 1.5rem;
+    margin-top: 6rem;
+    background-color: var(--green);
+    color: var(--black);
+    cursor: pointer;
+    box-shadow: 0 10px 40px -13px var(--green);
+    font-family: 'Noto Sans', sans-serif;
+}
+
+@media screen and (max-width:915px){
+    main #left-section{
+        display: none;
+    }  
+    main #right-section{
+        width: 100vw;
+    }
+}
+@media screen and (max-height:516px) {
+    body{
+      height: 100%;
+    }
+    
+
+    
+   
+}
+
+/*Page Configuration Endss */
+
+
