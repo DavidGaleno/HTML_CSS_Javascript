@@ -52,7 +52,6 @@ main {
 main #left-section, main #right-section{
     width: 50vw;
     height: 100vh;
-    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,6 +141,7 @@ main #right-section-card-form-button{
     }  
     main #right-section{
         width: 100vw;
+        height: auto;
     }
 }
 @media screen and (max-height:516px) {
