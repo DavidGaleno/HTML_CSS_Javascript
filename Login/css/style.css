@@ -40,7 +40,7 @@ main #right-section-card-form-password-textbox, main #right-section-card-form-us
 
 main {
     background-color: var(--black);
-    height: 80vh
+    height: 80vh;
     width: 80vw;
     padding: 3rem;
     display: flex;
