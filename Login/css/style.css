@@ -136,6 +136,9 @@ main #right-section-card-form-button{
 }
 
 @media screen and (max-width:915px){
+    main {
+        height: auto;
+    }
     main #left-section{
         display: none;
     }  
